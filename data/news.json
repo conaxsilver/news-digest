@@ -1,23 +1,44 @@
 [
   {
-    "date": "2026-07-13",
+    "date": "2026-07-04",
     "lang": "ja",
-    "category": "サンプル",
-    "title": "ここに記事タイトルが入ります(このエントリはサンプルなので削除してOK)",
-    "url": "https://example.com"
+    "category": "考古学",
+    "title": "エジプトの海岸都市マリーナ・エル・アラメインで2000年前の墓18基と「黄金の舌」の護符を発見",
+    "url": "https://news.yahoo.co.jp/articles/68bdbda9508c5e86e3ec242a5f482e6cce7d8ec8"
   },
   {
-    "date": "2026-07-13",
+    "date": "2026-07-05",
+    "lang": "ja",
+    "category": "宇宙科学",
+    "title": "はやぶさ2、小惑星「トリフネ」への高速フライバイに成功",
+    "url": "https://news.web.nhk/newsweb/na/na-k10015168951000"
+  },
+  {
+    "date": "2026-07-09",
     "lang": "en",
-    "category": "Sample",
-    "title": "This is a sample entry in English (safe to delete)",
-    "url": "https://example.com"
+    "category": "Archaeology",
+    "title": "18 ancient tombs in Egypt yield 'golden tongue' amulets at Marina El Alamein",
+    "url": "https://www.euronews.com/culture/2026/07/09/archaeology-18-ancient-tombs-in-egypt-yield-golden-tongue-amulets"
   },
   {
-    "date": "2026-07-13",
+    "date": "2026-07-07",
+    "lang": "en",
+    "category": "Archaeology",
+    "title": "New archaeological discoveries in Israel shed light on early human life and Byzantine Christian artifacts",
+    "url": "https://www.eurasiareview.com/07072026-new-archaeological-discoveries-in-israel-shed-light-on-early-human-life-and-byzantine-christian-artifacts/"
+  },
+  {
+    "date": "2026-07-10",
     "lang": "es",
-    "category": "Ejemplo",
-    "title": "Esta es una entrada de ejemplo en español (se puede eliminar)",
-    "url": "https://example.com"
+    "category": "Arqueología",
+    "title": "Descubren una antigua ciudad oculta en la costa del Mediterráneo: tumbas intactas y lenguas de oro en Marina El Alamein",
+    "url": "https://www.infobae.com/america/ciencia-america/2026/07/10/descubren-una-antigua-ciudad-oculta-en-egipto-los-hallazgos-arqueologicos-revelaron-rituales-funerarios-desconocidos/"
+  },
+  {
+    "date": "2026-07-11",
+    "lang": "es",
+    "category": "Arqueología",
+    "title": "Descubrimiento en Egipto: 18 tumbas con lenguas de oro y sarcófago de granito en Marina El Alamein",
+    "url": "https://prensamercosur.org/2026/07/11/descubrimiento-en-egipto-18-tumbas-con-lenguas-de-oro-y-sarcofago-de-granito-en-marina-el-alamein-cerca-de-alejandria/"
   }
 ]
