@@ -108,6 +108,14 @@
     font-size: 1rem;
     font-weight: 500;
   }
+  .article-summary {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+  .article.read {
+    opacity: 0.55;
+  }
   .chip {
     display: inline-block;
     background: var(--chip-bg);
@@ -167,14 +175,19 @@
   <script>
     const LANGS = { ja: "日本語", en: "English", es: "Español" };
     const LIKES_KEY = "newsDigestLikes";
-    const state = { articles: [], lang: "ja", category: "すべて", likesOnly: false };
+    const READS_KEY = "newsDigestReads";
+    const state = { articles: [], lang: "ja", category: "すべて", likesOnly: false, unreadOnly: false };
 
-    function loadLikes() {
+    function loadFromStorage(key) {
       try {
-        return JSON.parse(localStorage.getItem(LIKES_KEY)) || {};
+        return JSON.parse(localStorage.getItem(key)) || {};
       } catch {
         return {};
       }
+    }
+
+    function loadLikes() {
+      return loadFromStorage(LIKES_KEY);
     }
 
     function saveLikes(likes) {
@@ -193,6 +206,26 @@
         likes[url] = true;
       }
       saveLikes(likes);
+      render();
+    }
+
+    function loadReads() {
+      return loadFromStorage(READS_KEY);
+    }
+
+    function saveReads(reads) {
+      localStorage.setItem(READS_KEY, JSON.stringify(reads));
+    }
+
+    function isRead(url) {
+      return !!loadReads()[url];
+    }
+
+    function markRead(url) {
+      const reads = loadReads();
+      if (reads[url]) return;
+      reads[url] = true;
+      saveReads(reads);
       render();
     }
 
@@ -261,18 +294,28 @@
       likeBtn.textContent = "♥ お気に入りのみ";
       likeBtn.onclick = () => { state.likesOnly = !state.likesOnly; render(); };
       el.appendChild(likeBtn);
+
+      const unreadBtn = document.createElement("button");
+      unreadBtn.className = "filter-btn" + (state.unreadOnly ? " active" : "");
+      unreadBtn.textContent = "未読のみ";
+      unreadBtn.onclick = () => { state.unreadOnly = !state.unreadOnly; render(); };
+      el.appendChild(unreadBtn);
     }
 
     function renderList() {
       const el = document.getElementById("list");
       el.innerHTML = "";
       const likes = loadLikes();
+      const reads = loadReads();
       const inLang = state.articles.filter(a => a.lang === state.lang);
       let filtered = state.category === "すべて"
         ? inLang
         : inLang.filter(a => a.category === state.category);
       if (state.likesOnly) {
         filtered = filtered.filter(a => likes[a.url]);
+      }
+      if (state.unreadOnly) {
+        filtered = filtered.filter(a => !reads[a.url]);
       }
 
       if (!filtered.length) {
@@ -296,14 +339,16 @@
 
         for (const a of byDate[date]) {
           const card = document.createElement("div");
-          card.className = "article";
+          card.className = "article" + (isRead(a.url) ? " read" : "");
 
           const link = document.createElement("a");
           link.className = "article-link";
           link.href = a.url;
           link.target = "_blank";
           link.rel = "noopener noreferrer";
-          link.innerHTML = `<span class="chip">${a.category}</span><div class="article-title">${a.title}</div>`;
+          const summaryHtml = a.summary ? `<div class="article-summary">${a.summary}</div>` : "";
+          link.innerHTML = `<span class="chip">${a.category}</span><div class="article-title">${a.title}</div>${summaryHtml}`;
+          link.addEventListener("click", () => markRead(a.url));
           card.appendChild(link);
 
           const liked = isLiked(a.url);
