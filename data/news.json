@@ -226,5 +226,68 @@
     "summary": "La Fiscalía de Veracruz confirmó el asesinato de la periodista Roxana Guzmán Ramírez, secuestrada un mes antes; ocho personas, incluidos cuatro policías municipales, fueron detenidas.",
     "tags": ["México", "Periodismo", "Veracruz"],
     "url": "https://www.infobae.com/mexico/2026/07/07/despiden-a-la-periodista-roxana-guzman-entre-llantos-y-musica-tras-ser-asesinada-en-veracruz-se-libre-como-siempre-lo-quisiste-ser/"
+  },
+  {
+    "date": "2026-07-10",
+    "lang": "es",
+    "category": "Noticias Locales (Perú)",
+    "title": "Perú se prepara para el cambio de mando presidencial del 28 de julio",
+    "summary": "Perú define el protocolo de la ceremonia en la que Keiko Fujimori asumirá la presidencia el 28 de julio, con la asistencia confirmada de mandatarios como Javier Milei y José Antonio Kast.",
+    "tags": ["Perú", "Política", "Elecciones"],
+    "url": "https://www.infobae.com/peru/2026/07/10/cambio-de-mando-presidencial-2026-como-sera-la-ceremonia-del-28-de-julio-y-que-actividades-incluira/"
+  },
+  {
+    "date": "2026-07-11",
+    "lang": "es",
+    "category": "Noticias Locales (Chile)",
+    "title": "Gobierno de Chile activa el 'Modo Empleo' con 20 mil nuevos subsidios a la contratación",
+    "summary": "Ante el alza de la cesantía, el Ejecutivo chileno destinó $50.000 millones a medidas de empleo, incluyendo subsidios que cubren hasta el 60% del sueldo mínimo cuando el puesto es ocupado por una mujer.",
+    "tags": ["Chile", "Empleo", "Economía"],
+    "url": "https://www.biobiochile.cl/noticias/nacional/chile/2026/07/11/gobierno-activa-el-modo-empleo-lema-con-el-que-busca-frenar-el-alza-de-la-cesantia.shtml"
+  },
+  {
+    "date": "2026-07-02",
+    "lang": "ja",
+    "category": "言語学",
+    "title": "ルーブル美術館の「ライオンの石板」に刻まれた古代エラム文字の解読が進む",
+    "summary": "青銅器時代のイランで使われた未解読文字「線エラム文字」について、考古学者フランソワ・ドゥセらによる20年来の解読作業が進展。AIも文法・語彙パターンの解析に活用されている。",
+    "tags": ["言語学", "古代文字", "考古学", "イラン"],
+    "url": "https://news.yahoo.co.jp/articles/09659a350eb358a839d17370d37f15d4a5acfa6d"
+  },
+  {
+    "date": "2026-07-01",
+    "lang": "en",
+    "category": "Linguistics",
+    "title": "Ancient Iranian writing system begins to reveal its secrets after 4,000 years",
+    "summary": "Ongoing decipherment work on Linear Elamite, a Bronze Age writing system from ancient Iran, continues to reveal new readable symbols, shedding light on one of the earliest civilizations of the Near East.",
+    "tags": ["Linguistics", "Ancient Scripts", "Iran", "Archaeology"],
+    "url": "https://greekreporter.com/2026/07/01/ancient-iranian-writing-secrets/"
+  },
+  {
+    "date": "2026-07-09",
+    "lang": "ja",
+    "category": "生成AI",
+    "title": "OpenAIが新モデル「GPT-5.6」を一般公開、Sol/Terra/Lunaの3種構成に",
+    "summary": "OpenAIが最上位モデル「Sol」、バランス型「Terra」、高速・低コストの「Luna」から成る新モデル群「GPT-5.6」を一般公開した。米政府の承認を経ての公開となった。",
+    "tags": ["生成AI", "OpenAI", "ChatGPT", "LLM"],
+    "url": "https://www.nikkei.com/article/DGXZQOGN084IU0Y6A700C2000000/"
+  },
+  {
+    "date": "2026-07-09",
+    "lang": "en",
+    "category": "Generative AI",
+    "title": "OpenAI launches its new family of models with GPT-5.6",
+    "summary": "OpenAI broadly released GPT-5.6 in three variants, Sol, Terra, and Luna, after a staggered rollout requested by the US government, with Sol positioned as the most capable flagship model.",
+    "tags": ["Generative AI", "OpenAI", "ChatGPT", "LLM"],
+    "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/"
+  },
+  {
+    "date": "2026-07-09",
+    "lang": "es",
+    "category": "IA Generativa",
+    "title": "OpenAI presenta al público su nueva serie de modelos de inteligencia artificial",
+    "summary": "OpenAI hizo disponible para el público su nueva serie de modelos GPT-5.6, tras la aprobación de un lanzamiento más amplio por parte del gobierno de Estados Unidos.",
+    "tags": ["IA Generativa", "OpenAI", "ChatGPT"],
+    "url": "https://www.elcolombiano.com/tendencias/nuevos-modelos-chatgpt-open-ia-lanzamiento-AI38657564"
   }
 ]

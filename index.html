@@ -107,18 +107,23 @@
     background: var(--chip-bg);
     margin: 0.5rem 0;
   }
-  .thumb-fallback {
-    display: flex;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    background: var(--chip-bg);
-    color: var(--chip-text);
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
+  .category-group {
+    margin-bottom: 1.2rem;
+  }
+  .category-summary {
+    font-size: 0.95rem;
     font-weight: 700;
-    margin: 0.5rem 0;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.4rem 0.1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.6rem;
+  }
+  .category-summary .cat-count {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
   }
   .article-link {
     flex: 1;
@@ -342,11 +347,83 @@
       el.appendChild(unreadBtn);
     }
 
-    function makeThumbFallback(category) {
-      const el = document.createElement("div");
-      el.className = "thumb-fallback";
-      el.textContent = (category || "?").trim().charAt(0).toUpperCase();
-      return el;
+    function buildArticleCard(a) {
+      const card = document.createElement("div");
+      card.className = "article" + (isRead(a.url) ? " read" : "");
+
+      const link = document.createElement("a");
+      link.className = "article-link";
+      link.href = a.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.addEventListener("click", () => markRead(a.url));
+
+      const top = document.createElement("div");
+      top.className = "article-top";
+      top.innerHTML = `<span class="chip">${a.category}</span>`;
+
+      const liked = isLiked(a.url);
+      const likeButton = document.createElement("button");
+      likeButton.className = "like-btn" + (liked ? " liked" : "");
+      likeButton.textContent = liked ? "♥" : "♡";
+      likeButton.setAttribute("aria-label", "いいね");
+      likeButton.onclick = () => toggleLike(a.url);
+      top.appendChild(likeButton);
+      card.appendChild(top);
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "article-title";
+      titleEl.textContent = a.title;
+      link.appendChild(titleEl);
+
+      if (a.image) {
+        const thumb = document.createElement("img");
+        thumb.className = "thumb";
+        thumb.src = a.image;
+        thumb.alt = "";
+        thumb.loading = "lazy";
+        thumb.onerror = () => { thumb.remove(); };
+        link.appendChild(thumb);
+      }
+
+      if (a.summary) {
+        const summaryEl = document.createElement("div");
+        summaryEl.className = "article-summary";
+        summaryEl.textContent = a.summary;
+        link.appendChild(summaryEl);
+      }
+
+      if (a.tags && a.tags.length) {
+        const tagRow = document.createElement("div");
+        tagRow.className = "tag-row";
+        tagRow.innerHTML = a.tags.map(t => `<span class="tag">#${t}</span>`).join("");
+        link.appendChild(tagRow);
+      }
+
+      card.appendChild(link);
+      return card;
+    }
+
+    function buildDateGroups(list) {
+      const container = document.createDocumentFragment();
+      const byDate = {};
+      for (const a of list) {
+        (byDate[a.date] ??= []).push(a);
+      }
+      const dates = Object.keys(byDate).sort((a, b) => b.localeCompare(a));
+      for (const date of dates) {
+        const group = document.createElement("div");
+        group.className = "date-group";
+        const heading = document.createElement("div");
+        heading.className = "date-heading";
+        heading.textContent = date;
+        group.appendChild(heading);
+        for (const a of byDate[date]) {
+          group.appendChild(buildArticleCard(a));
+        }
+        container.appendChild(group);
+      }
+      return container;
     }
 
     function renderList() {
@@ -370,79 +447,31 @@
         return;
       }
 
-      const byDate = {};
-      for (const a of filtered) {
-        (byDate[a.date] ??= []).push(a);
+      if (state.category !== "すべて") {
+        el.appendChild(buildDateGroups(filtered));
+        return;
       }
-      const dates = Object.keys(byDate).sort((a, b) => b.localeCompare(a));
 
-      for (const date of dates) {
-        const group = document.createElement("div");
-        group.className = "date-group";
-        const heading = document.createElement("div");
-        heading.className = "date-heading";
-        heading.textContent = date;
-        group.appendChild(heading);
+      const byCategory = {};
+      for (const a of filtered) {
+        (byCategory[a.category] ??= []).push(a);
+      }
+      const categories = Object.keys(byCategory).sort((c1, c2) => {
+        const max1 = byCategory[c1].reduce((m, a) => (a.date > m ? a.date : m), "");
+        const max2 = byCategory[c2].reduce((m, a) => (a.date > m ? a.date : m), "");
+        return max2.localeCompare(max1);
+      });
 
-        for (const a of byDate[date]) {
-          const card = document.createElement("div");
-          card.className = "article" + (isRead(a.url) ? " read" : "");
-
-          const link = document.createElement("a");
-          link.className = "article-link";
-          link.href = a.url;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.addEventListener("click", () => markRead(a.url));
-
-          const top = document.createElement("div");
-          top.className = "article-top";
-          top.innerHTML = `<span class="chip">${a.category}</span>`;
-
-          const liked = isLiked(a.url);
-          const likeButton = document.createElement("button");
-          likeButton.className = "like-btn" + (liked ? " liked" : "");
-          likeButton.textContent = liked ? "♥" : "♡";
-          likeButton.setAttribute("aria-label", "いいね");
-          likeButton.onclick = () => toggleLike(a.url);
-          top.appendChild(likeButton);
-          card.appendChild(top);
-
-          const titleEl = document.createElement("div");
-          titleEl.className = "article-title";
-          titleEl.textContent = a.title;
-          link.appendChild(titleEl);
-
-          if (a.image) {
-            const thumb = document.createElement("img");
-            thumb.className = "thumb";
-            thumb.src = a.image;
-            thumb.alt = "";
-            thumb.loading = "lazy";
-            thumb.onerror = () => { thumb.replaceWith(makeThumbFallback(a.category)); };
-            link.appendChild(thumb);
-          } else {
-            link.appendChild(makeThumbFallback(a.category));
-          }
-
-          if (a.summary) {
-            const summaryEl = document.createElement("div");
-            summaryEl.className = "article-summary";
-            summaryEl.textContent = a.summary;
-            link.appendChild(summaryEl);
-          }
-
-          if (a.tags && a.tags.length) {
-            const tagRow = document.createElement("div");
-            tagRow.className = "tag-row";
-            tagRow.innerHTML = a.tags.map(t => `<span class="tag">#${t}</span>`).join("");
-            link.appendChild(tagRow);
-          }
-
-          card.appendChild(link);
-          group.appendChild(card);
-        }
-        el.appendChild(group);
+      for (const cat of categories) {
+        const details = document.createElement("details");
+        details.className = "category-group";
+        details.open = true;
+        const summary = document.createElement("summary");
+        summary.className = "category-summary";
+        summary.innerHTML = `${cat}<span class="cat-count">${byCategory[cat].length}件</span>`;
+        details.appendChild(summary);
+        details.appendChild(buildDateGroups(byCategory[cat]));
+        el.appendChild(details);
       }
     }
 

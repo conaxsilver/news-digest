@@ -4,13 +4,13 @@
 
 ## カテゴリの方針
 
-- 科学・考古学・歴史発見系: `考古学` / `古生物学` / `宇宙科学` など、内容に応じて自由に設定してよい。
-- ローカルニュース: 日本語タブは `ローカルニュース`(対象は日本)。English タブは主要な英語圏国(例: `Local News (US)` `Local News (UK)`)、Español タブは主要なスペイン語圏国(例: `Noticias Locales (España)` `Noticias Locales (Argentina)` `Noticias Locales (México)`)のように、カテゴリ名に国名を含めて区別する。
+- 科学・考古学・歴史発見系: `考古学` / `古生物学` / `宇宙科学` / `言語学` / `生成AI` など、内容に応じて自由に設定してよい。
+- ローカルニュース: 日本語タブは `ローカルニュース`(対象は日本)。English タブは主要な英語圏国(例: `Local News (US)` `Local News (UK)`)、Español タブは主要なスペイン語圏国(例: `Noticias Locales (España)` `Noticias Locales (Argentina)` `Noticias Locales (México)` `Noticias Locales (Perú)` `Noticias Locales (Chile)`)のように、カテゴリ名に国名を含めて区別する。
 
 ## 構成
 
-- `index.html` : サイト本体。`data/news.json` を読み込んで一覧表示する。上部に言語タブ(日本語/English/Español)、その下にカテゴリフィルタ+「♥ お気に入りのみ」「未読のみ」トグルがある。各記事にサムネイル画像・タグ・ハートボタン(いいね)が付く。
-- `data/news.json` : 記事データ本体。`{ date, lang, category, title, summary, tags, image, url }` の配列。`lang` は `ja` / `en` / `es` のいずれか。`summary` は1〜2文程度の概略。`tags` は内容に関連するタグの配列。`image` はサムネイル画像URL(**任意項目**、取得できなければ省略してよい。省略時はカテゴリの頭文字のプレースホルダーが表示される)。
+- `index.html` : サイト本体。`data/news.json` を読み込んで一覧表示する。上部に言語タブ(日本語/English/Español)、その下にカテゴリフィルタ+「♥ お気に入りのみ」「未読のみ」トグルがある。各記事にタグ・ハートボタン(いいね)が付く。「すべて」表示時は記事がカテゴリ(ジャンル)ごとに`<details>`で折りたためるグループとして表示される(特定カテゴリを選んだ時は通常のリスト表示)。
+- `data/news.json` : 記事データ本体。`{ date, lang, category, title, summary, tags, image, url }` の配列。`lang` は `ja` / `en` / `es` のいずれか。`summary` は1〜2文程度の概略。`tags` は内容に関連するタグの配列。`image` はサムネイル画像URL(**任意項目**)。取得できた場合のみタイトル下に表示され、**未設定または読み込み失敗時はサムネイル欄ごと非表示**になる(プレースホルダーは表示しない)。
 
 ## いいね機能について
 
