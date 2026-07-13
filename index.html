@@ -52,7 +52,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .filters.lang-filters {
+    margin-bottom: 1rem;
   }
   .filter-btn {
     border: 1px solid var(--border);
@@ -67,6 +70,9 @@
     background: var(--accent);
     border-color: var(--accent);
     color: #fff;
+  }
+  .lang-filters .filter-btn {
+    font-weight: 600;
   }
   .date-group {
     margin-bottom: 1.5rem;
@@ -115,11 +121,13 @@
 <body>
   <h1>発見ニュースまとめ</h1>
   <div class="updated" id="updated"></div>
+  <div class="filters lang-filters" id="lang-filters"></div>
   <div class="filters" id="filters"></div>
   <div id="list"></div>
 
   <script>
-    const state = { articles: [], category: "すべて" };
+    const LANGS = { ja: "日本語", en: "English", es: "Español" };
+    const state = { articles: [], lang: "ja", category: "すべて" };
 
     async function load() {
       const res = await fetch("data/news.json", { cache: "no-store" });
@@ -129,6 +137,7 @@
 
     function render() {
       renderUpdated();
+      renderLangFilters();
       renderFilters();
       renderList();
     }
@@ -140,8 +149,21 @@
       el.textContent = `最終更新: ${latest.date} / 記事数: ${state.articles.length}`;
     }
 
+    function renderLangFilters() {
+      const el = document.getElementById("lang-filters");
+      el.innerHTML = "";
+      for (const [code, label] of Object.entries(LANGS)) {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn" + (code === state.lang ? " active" : "");
+        btn.textContent = label;
+        btn.onclick = () => { state.lang = code; state.category = "すべて"; render(); };
+        el.appendChild(btn);
+      }
+    }
+
     function renderFilters() {
-      const cats = ["すべて", ...new Set(state.articles.map(a => a.category))];
+      const inLang = state.articles.filter(a => a.lang === state.lang);
+      const cats = ["すべて", ...new Set(inLang.map(a => a.category))];
       const el = document.getElementById("filters");
       el.innerHTML = "";
       for (const cat of cats) {
@@ -156,9 +178,10 @@
     function renderList() {
       const el = document.getElementById("list");
       el.innerHTML = "";
+      const inLang = state.articles.filter(a => a.lang === state.lang);
       const filtered = state.category === "すべて"
-        ? state.articles
-        : state.articles.filter(a => a.category === state.category);
+        ? inLang
+        : inLang.filter(a => a.category === state.category);
 
       if (!filtered.length) {
         el.innerHTML = '<div class="empty">記事がありません</div>';

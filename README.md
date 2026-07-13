@@ -4,15 +4,15 @@
 
 ## 構成
 
-- `index.html` : サイト本体。`data/news.json` を読み込んで一覧表示する。
-- `data/news.json` : 記事データ本体。`{ date, category, title, url }` の配列。
+- `index.html` : サイト本体。`data/news.json` を読み込んで一覧表示する。上部に言語タブ(日本語/English/Español)、その下にカテゴリフィルタがある。
+- `data/news.json` : 記事データ本体。`{ date, lang, category, title, url }` の配列。`lang` は `ja` / `en` / `es` のいずれか。
 
 ## 更新方法
 
 家にいるときにClaude Codeへ「ニュースサイト更新して」のように依頼する。Claudeが以下を行う想定:
 
-1. Web検索で科学・考古学・歴史発見系の新しい記事を探す
-2. `data/news.json` に新しいエントリを追加(`date` はYYYY-MM-DD形式)
+1. Web検索で科学・考古学・歴史発見系の新しい記事を探す(日本語・英語・スペイン語それぞれ)
+2. `data/news.json` に新しいエントリを追加(`date` はYYYY-MM-DD形式、`lang` は記事の言語)
 3. `git add` → `git commit` → `git push`
 4. pushするとGitHub Pagesが自動で再ビルドし、数分でサイトに反映される
 
