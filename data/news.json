@@ -19,6 +19,60 @@
     "url": "https://news.web.nhk/newsweb/na/na-k10015168951000"
   },
   {
+    "date": "2026-06-01",
+    "lang": "ja",
+    "category": "考古学",
+    "title": "新潟県長岡市の山林で新たな古墳「椿沢古墳」を発見",
+    "summary": "新潟大学の研究グループがドローンによるレーザー地形測量で、長岡市和島地域の山林に埋もれていた全長約38mの古墳を発見。古墳時代前期の築造とみられる。",
+    "tags": ["日本", "考古学", "古墳", "新潟"],
+    "url": "https://www.niigata-nippo.co.jp/articles/-/843846"
+  },
+  {
+    "date": "2026-04-03",
+    "lang": "ja",
+    "category": "古生物学",
+    "title": "古代のハチが哺乳類の骨の歯槽に営巣していたことが化石から判明",
+    "summary": "洞窟内の哺乳類の顎骨などに残る歯槽の空洞を、古代のハチが育房として利用していたことが化石調査で明らかになった。",
+    "tags": ["古生物学", "化石", "昆虫"],
+    "url": "https://nazology.kusuguru.co.jp/archives/189488"
+  },
+  {
+    "date": "2026-04-18",
+    "lang": "ja",
+    "category": "宇宙科学",
+    "title": "NASAが欧州の火星探査車「ロザリンド・フランクリン」支援を本格化、2028年打ち上げへ",
+    "summary": "NASAがESA主導の火星探査ミッション「ロザリンド・フランクリン」への支援を本格実装フェーズに移行させたと発表。生命の痕跡探査に使う質量分析計などを提供する。",
+    "tags": ["火星", "宇宙探査", "NASA", "ESA"],
+    "url": "https://sorae.info/space/20260418-nasa-rosa.html"
+  },
+  {
+    "date": "2026-06-26",
+    "lang": "ja",
+    "category": "宇宙科学",
+    "title": "スーパーカミオカンデが「超新星背景ニュートリノ」の兆候を世界で初めて捉える",
+    "summary": "東京大学などの国際共同研究グループが、約5000日分の観測データ解析から超新星背景ニュートリノの兆候を初検出。宇宙の星形成史の解明につながる成果。",
+    "tags": ["ニュートリノ", "素粒子物理学", "スーパーカミオカンデ"],
+    "url": "https://www.astroarts.co.jp/article/hl/a/14558_neutrino"
+  },
+  {
+    "date": "2026-07-10",
+    "lang": "ja",
+    "category": "ローカルニュース",
+    "title": "皇室典範改正案が衆議院本会議で可決、今国会での成立が濃厚に",
+    "summary": "女性皇族の婚姻後の皇族残留や、旧宮家男系男子の養子縁組を認める皇室典範改正案が衆院本会議で可決され、参議院に送付された。",
+    "tags": ["日本", "国会", "皇室", "政治"],
+    "url": "https://news.web.nhk/newsweb/na/na-k10015173031000"
+  },
+  {
+    "date": "2026-06-15",
+    "lang": "ja",
+    "category": "ローカルニュース",
+    "title": "NHK世論調査、自民党支持率35.7%「支持なし」34.7%",
+    "summary": "NHKが実施した6月の世論調査で、自民党の政党支持率は35.7%、「支持政党なし」は34.7%となった。",
+    "tags": ["日本", "世論調査", "政治"],
+    "url": "https://news.web.nhk/newsweb/na/na-k10015144101000"
+  },
+  {
     "date": "2026-07-09",
     "lang": "en",
     "category": "Archaeology",
@@ -38,6 +92,69 @@
     "url": "https://www.eurasiareview.com/07072026-new-archaeological-discoveries-in-israel-shed-light-on-early-human-life-and-byzantine-christian-artifacts/"
   },
   {
+    "date": "2026-07-06",
+    "lang": "en",
+    "category": "Paleontology",
+    "title": "OU paleontologists make 'one in a million' discovery of soft tissue in 450-million-year-old fossil",
+    "summary": "University of Oklahoma researchers found preserved soft tissue in a 450-million-year-old crinoid fossil, only the second such discovery ever and the oldest known example.",
+    "tags": ["Paleontology", "Fossil", "Crinoid", "Ordovician"],
+    "url": "https://www.ou.edu/news/articles/2026/july/soft-tissue-preserved-in-450-million-year-old-fossil"
+  },
+  {
+    "date": "2026-06-25",
+    "lang": "en",
+    "category": "Paleontology",
+    "title": "Ancient bees turned tooth sockets into tiny nurseries 20,000 years ago",
+    "summary": "Fossils from a Caribbean cave reveal the first known evidence of bees nesting inside the empty tooth sockets and bone cavities of long-dead mammals.",
+    "tags": ["Paleontology", "Bees", "Fossil", "Caribbean"],
+    "url": "https://www.sciencedaily.com/releases/2026/06/260625060216.htm"
+  },
+  {
+    "date": "2026-06-26",
+    "lang": "en",
+    "category": "Physics",
+    "title": "A strange LIGO signal could reveal the missing link behind dark matter",
+    "summary": "An unusual gravitational wave signal detected by LIGO has renewed hopes that primordial black holes, a candidate for dark matter, may finally be within reach of discovery.",
+    "tags": ["Physics", "Gravitational Waves", "Black Holes", "Dark Matter"],
+    "url": "https://www.sciencedaily.com/releases/2026/06/260626125703.htm"
+  },
+  {
+    "date": "2026-07-07",
+    "lang": "en",
+    "category": "Space",
+    "title": "This Mars rover could finally reveal whether life ever existed on Mars",
+    "summary": "Tests confirm the Rosalind Franklin rover's MOMA instrument can distinguish biological from non-biological versions of key molecules, boosting the search for ancient life on Mars.",
+    "tags": ["Mars", "Space Exploration", "Astrobiology", "ESA"],
+    "url": "https://www.sciencedaily.com/releases/2026/07/260707025051.htm"
+  },
+  {
+    "date": "2026-07-01",
+    "lang": "en",
+    "category": "Physics",
+    "title": "AI just supercharged the race to find room-temperature superconductors",
+    "summary": "A global research consortium used machine learning to screen materials and identify two new superconductors, YRu3B2 and LuRu3B2, dramatically speeding up the search process.",
+    "tags": ["Physics", "Superconductors", "AI", "Materials Science"],
+    "url": "https://www.sciencedaily.com/releases/2026/07/260701205006.htm"
+  },
+  {
+    "date": "2026-07-12",
+    "lang": "en",
+    "category": "Local News (US)",
+    "title": "Sen. Lindsey Graham of South Carolina dies at 71",
+    "summary": "Senator Lindsey Graham died from a brief and sudden illness, with a preliminary medical report citing aortic dissection as the cause of death.",
+    "tags": ["United States", "Politics", "Congress"],
+    "url": "https://www.npr.org/2026/07/12/nx-s1-5890790/us-sen-lindsey-graham-dies"
+  },
+  {
+    "date": "2026-07-09",
+    "lang": "en",
+    "category": "Local News (UK)",
+    "title": "Amber heat health alert issued as UK braces for longest heatwave in 50 years",
+    "summary": "The UK Health Security Agency issued amber heat alerts across much of England as temperatures climbed to 35C, warning of health risks especially for older adults.",
+    "tags": ["United Kingdom", "Weather", "Heatwave"],
+    "url": "https://www.metoffice.gov.uk/about-us/news-and-media/media-centre/weather-and-climate-news/2026/amber-extreme-heat-warning-updated-with-heatwave-forecast-for-many"
+  },
+  {
     "date": "2026-07-10",
     "lang": "es",
     "category": "Arqueología",
@@ -55,5 +172,59 @@
     "summary": "Se descubrieron 18 tumbas con lenguas de oro y un sarcófago de granito de 2,5 metros en el yacimiento de Marina El Alamein, cerca de Alejandría.",
     "tags": ["Egipto", "Arqueología", "Sarcófago"],
     "url": "https://prensamercosur.org/2026/07/11/descubrimiento-en-egipto-18-tumbas-con-lenguas-de-oro-y-sarcofago-de-granito-en-marina-el-alamein-cerca-de-alejandria/"
+  },
+  {
+    "date": "2026-07-10",
+    "lang": "es",
+    "category": "Paleontología",
+    "title": "Descubren en Uruguay un nuevo dinosaurio gigante de 83 millones de años: 'el protector'",
+    "summary": "Investigadores identificaron una nueva especie de dinosaurio gigante, Mesetasaurus protector, hallada por pescadores en la Formación Guichón, en Paysandú. Es el segundo dinosaurio genuinamente uruguayo descrito hasta ahora.",
+    "tags": ["Uruguay", "Paleontología", "Dinosaurios", "América del Sur"],
+    "url": "https://www.infobae.com/america/ciencia-america/2026/07/10/descubrieron-en-uruguay-un-dinosaurio-gigante-de-83-millones-de-anos-y-lo-llamaron-el-protector/"
+  },
+  {
+    "date": "2026-07-12",
+    "lang": "es",
+    "category": "Paleontología",
+    "title": "Wakrayampi: el primer dinosaurio hallado en la Amazonía ecuatoriana",
+    "summary": "Paleontólogos documentaron el primer registro de fósiles de dinosaurio en la Cuenca Oriente de Ecuador, identificando un saurópodo titanosaurio bautizado 'Wakrayampi' en lengua napo-kichwa.",
+    "tags": ["Ecuador", "Paleontología", "Dinosaurios", "Amazonía"],
+    "url": "https://www.infobae.com/america/america-latina/2026/07/12/wakrayampi-el-gigante-dinosaurio-que-emergio-de-la-tierra-en-la-amazonia-ecuatoriana/"
+  },
+  {
+    "date": "2026-07-07",
+    "lang": "es",
+    "category": "Astronomía",
+    "title": "El Observatorio Vera Rubin en Chile promete 'una avalancha de descubrimientos'",
+    "summary": "Desde el Cerro Pachón, el telescopio Vera C. Rubin ya detectó más de 2.100 nuevos asteroides en sus primeras imágenes, en el inicio de un relevamiento de 10 años del cielo austral.",
+    "tags": ["Chile", "Astronomía", "Telescopio", "Observatorio"],
+    "url": "https://mundoenlinea.cl/2026/07/07/se-viene-una-avalancha-de-descubrimientos-observatorio-chileno-tendra-el-registro-mas-completo-del-universo/"
+  },
+  {
+    "date": "2026-07-10",
+    "lang": "es",
+    "category": "Noticias Locales (España)",
+    "title": "Feijóo clausura en Valladolid el Congreso Nacional de Nuevas Generaciones del PP",
+    "summary": "El líder del PP, Alberto Núñez Feijóo, clausuró en Valladolid el XVI Congreso de Nuevas Generaciones, donde Ignacio Dancausa fue proclamado nuevo presidente de la organización juvenil.",
+    "tags": ["España", "Política", "PP"],
+    "url": "https://www.infobae.com/espana/agencias/2026/07/10/feijoo-viaja-hoy-a-valladolid-por-el-congreso-de-nngg-y-vera-el-partido-espana-belgica-con-jovenes-del-pp/"
+  },
+  {
+    "date": "2026-07-12",
+    "lang": "es",
+    "category": "Noticias Locales (Argentina)",
+    "title": "El Gobierno de Milei avanza con la reforma del Banco Central para reforzar su independencia",
+    "summary": "El Ejecutivo argentino impulsa un proyecto de ley que prohibiría al Banco Central financiar al Tesoro y reduciría la influencia política sobre la entidad, en línea con recomendaciones del FMI.",
+    "tags": ["Argentina", "Economía", "Política", "Banco Central"],
+    "url": "https://www.infobae.com/politica/2026/07/12/el-gobierno-activa-la-estrategia-por-la-reforma-del-bcra-milei-volvera-a-reunirse-con-legisladores-libertarios/"
+  },
+  {
+    "date": "2026-07-07",
+    "lang": "es",
+    "category": "Noticias Locales (México)",
+    "title": "Despiden a la periodista Roxana Guzmán tras su asesinato en Veracruz",
+    "summary": "La Fiscalía de Veracruz confirmó el asesinato de la periodista Roxana Guzmán Ramírez, secuestrada un mes antes; ocho personas, incluidos cuatro policías municipales, fueron detenidas.",
+    "tags": ["México", "Periodismo", "Veracruz"],
+    "url": "https://www.infobae.com/mexico/2026/07/07/despiden-a-la-periodista-roxana-guzman-entre-llantos-y-musica-tras-ser-asesinada-en-veracruz-se-libre-como-siempre-lo-quisiste-ser/"
   }
 ]
