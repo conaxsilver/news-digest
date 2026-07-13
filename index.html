@@ -4,93 +4,228 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>発見ニュースまとめ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%AD%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     color-scheme: light dark;
-    --bg: #f7f7f5;
-    --card-bg: #ffffff;
-    --text: #1a1a1a;
-    --text-muted: #6b6b6b;
-    --border: #e4e4e0;
-    --accent: #2563eb;
-    --chip-bg: #eef2ff;
-    --chip-text: #3730a3;
+    --bg: #f5f6f8;
+    --bg-elevated: #ffffff;
+    --text: #14161a;
+    --text-muted: #5b6270;
+    --border: #e2e4e9;
+    --accent: #4f46e5;
+    --accent-contrast: #ffffff;
+    --chip-bg: #eef0ff;
+    --chip-text: #4338ca;
+    --danger: #e0245e;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 2px 8px rgba(16,24,40,.06);
+    --shadow-hover: 0 4px 10px rgba(16,24,40,.08), 0 8px 20px rgba(16,24,40,.08);
+    --maxw: 1080px;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #14151a;
-      --card-bg: #1d1e24;
-      --text: #f0f0f0;
-      --text-muted: #9a9aa5;
-      --border: #2c2d34;
-      --accent: #7aa2ff;
-      --chip-bg: #232a45;
-      --chip-text: #b3c2ff;
+      --bg: #0b0c0f;
+      --bg-elevated: #16181d;
+      --text: #e8e9ec;
+      --text-muted: #9298a5;
+      --border: #2a2d34;
+      --accent: #818cf8;
+      --accent-contrast: #0b0c0f;
+      --chip-bg: #23263a;
+      --chip-text: #c7d2fe;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 2px 10px rgba(0,0,0,.3);
+      --shadow-hover: 0 6px 16px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.35);
     }
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    padding: 1rem;
     background: var(--bg);
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
     line-height: 1.6;
-    max-width: 720px;
-    margin-inline: auto;
   }
-  h1 {
-    font-size: 1.4rem;
-    margin: 0.5rem 0 0.2rem;
+  a { color: inherit; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem clamp(1rem, 4vw, 2rem) 0.7rem;
+  }
+  .header-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.7rem;
+  }
+  .brand h1 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    margin: 0 0 0.15rem;
+    letter-spacing: -0.01em;
+  }
+  .brand .tagline {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
   }
   .updated {
     color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
   }
+  .toolbar-row {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  .copy-btn {
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
   .filters {
+    max-width: var(--maxw);
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-bottom: 0.8rem;
-  }
-  .filters.lang-filters {
-    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
   }
   .filter-btn {
     border: 1px solid var(--border);
-    background: var(--card-bg);
+    background: var(--bg-elevated);
     color: var(--text);
     border-radius: 999px;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.85rem;
+    padding: 0.32rem 0.85rem;
+    font-size: 0.83rem;
     cursor: pointer;
+    transition: background .12s ease, color .12s ease, border-color .12s ease;
   }
+  .filter-btn:hover { border-color: var(--accent); }
   .filter-btn.active {
     background: var(--accent);
     border-color: var(--accent);
-    color: #fff;
+    color: var(--accent-contrast);
   }
-  .lang-filters .filter-btn {
+  .lang-filters .filter-btn { font-weight: 600; }
+
+  .tag-filter-bar {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-bottom: 0.6rem;
+  }
+  .tag-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--chip-bg);
+    color: var(--chip-text);
+    border: none;
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.82rem;
+    cursor: pointer;
     font-weight: 600;
   }
+
+  main {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 1.2rem clamp(1rem, 4vw, 2rem) 3rem;
+  }
+
+  .category-group { margin-bottom: 1.6rem; }
+  .category-summary {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem 0.1rem;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 0.9rem;
+    list-style: none;
+  }
+  .category-summary::-webkit-details-marker { display: none; }
+  .category-summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 0.4rem;
+    color: var(--accent);
+    transition: transform .15s ease;
+  }
+  details[open] > .category-summary::before { transform: rotate(90deg); }
+  .category-summary .cat-count {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.78rem;
+    margin-left: 0.4rem;
+  }
+
   .date-group {
-    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.9rem;
+    margin-bottom: 1.4rem;
   }
   .date-heading {
-    font-size: 0.95rem;
+    grid-column: 1 / -1;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-muted);
-    margin: 0 0 0.5rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.3rem;
+    margin: 0;
   }
-  .article {
-    background: var(--card-bg);
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-elevated);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 0.6rem;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  @media (hover: hover) {
+    .article-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  }
+  .article-card.read { opacity: 0.6; }
+
+  .thumb-link { display: block; line-height: 0; }
+  .thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--chip-bg);
+  }
+
+  .article-body {
+    padding: 0.85rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
   }
   .article-top {
     display: flex;
@@ -98,130 +233,108 @@
     align-items: flex-start;
     gap: 0.5rem;
   }
-  .thumb {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    object-fit: cover;
-    background: var(--chip-bg);
-    margin: 0.5rem 0;
-  }
-  .category-group {
-    margin-bottom: 1.2rem;
-  }
-  .category-summary {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text);
-    cursor: pointer;
-    padding: 0.4rem 0.1rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 0.6rem;
-  }
-  .category-summary .cat-count {
-    color: var(--text-muted);
-    font-weight: 400;
-    font-size: 0.8rem;
-    margin-left: 0.3rem;
-  }
-  .article-link {
-    flex: 1;
-    min-width: 0;
-    display: block;
-    text-decoration: none;
-    color: var(--text);
-  }
-  .article-link:active {
-    opacity: 0.8;
-  }
-  .article-title {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  .article-summary {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-  }
-  .tag-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-top: 0.4rem;
-  }
-  .tag {
-    display: inline-block;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    border-radius: 999px;
-    padding: 0.05rem 0.5rem;
-  }
-  .article.read {
-    opacity: 0.55;
-  }
   .chip {
     display: inline-block;
     background: var(--chip-bg);
     color: var(--chip-text);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 600;
     border-radius: 6px;
-    padding: 0.1rem 0.5rem;
-    margin-bottom: 0.35rem;
+    padding: 0.12rem 0.55rem;
   }
   .like-btn {
     flex-shrink: 0;
     border: none;
     background: none;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1;
     cursor: pointer;
-    padding: 0.2rem;
+    padding: 0;
     color: var(--text-muted);
   }
-  .like-btn.liked {
-    color: #e0245e;
-  }
-  .toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.8rem;
-  }
-  .copy-btn {
-    border: 1px solid var(--border);
-    background: var(--card-bg);
+  .like-btn.liked { color: var(--danger); }
+
+  .article-link {
+    text-decoration: none;
     color: var(--text);
-    border-radius: 8px;
-    padding: 0.3rem 0.7rem;
-    font-size: 0.8rem;
-    cursor: pointer;
-    white-space: nowrap;
   }
+  .article-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .article-summary {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    border-radius: 999px;
+    padding: 0.08rem 0.55rem;
+    cursor: pointer;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .tag.active { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+
   .empty {
     color: var(--text-muted);
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
+
+  .site-footer {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 1rem clamp(1rem, 4vw, 2rem) 2.5rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    text-align: center;
+  }
+  .site-footer a { color: var(--text-muted); text-decoration: underline; }
 </style>
 </head>
 <body>
-  <h1>発見ニュースまとめ</h1>
-  <div class="toolbar">
-    <div class="updated" id="updated"></div>
-    <button class="copy-btn" id="copy-likes-btn">♥ 好みをコピー</button>
-  </div>
-  <div class="filters lang-filters" id="lang-filters"></div>
-  <div class="filters" id="filters"></div>
-  <div id="list"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1>🔭 発見ニュースまとめ</h1>
+        <p class="tagline">科学・考古学・歴史発見とローカルニュースのダイジェスト</p>
+      </div>
+      <div class="updated" id="updated"></div>
+    </div>
+    <div class="toolbar-row">
+      <div class="filters lang-filters" id="lang-filters" style="padding-bottom:0;"></div>
+      <button class="copy-btn" id="copy-likes-btn">♥ 好みをコピー</button>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="tag-filter-bar" id="tag-filter-bar"></div>
+  </header>
+
+  <main>
+    <div id="list"></div>
+  </main>
+
+  <footer class="site-footer">
+    データは手動更新・スマホのブラウザにいいね/既読を保存 ·
+    <a href="https://github.com/conaxsilver/news-digest" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
 
   <script>
     const LANGS = { ja: "日本語", en: "English", es: "Español" };
     const LIKES_KEY = "newsDigestLikes";
     const READS_KEY = "newsDigestReads";
-    const state = { articles: [], lang: "ja", category: "すべて", likesOnly: false, unreadOnly: false };
+    const state = { articles: [], lang: "ja", category: "すべて", tag: null, likesOnly: false, unreadOnly: false };
 
     function loadFromStorage(key) {
       try {
@@ -300,6 +413,7 @@
       renderUpdated();
       renderLangFilters();
       renderFilters();
+      renderTagFilterBar();
       renderList();
     }
 
@@ -317,7 +431,7 @@
         const btn = document.createElement("button");
         btn.className = "filter-btn" + (code === state.lang ? " active" : "");
         btn.textContent = label;
-        btn.onclick = () => { state.lang = code; state.category = "すべて"; render(); };
+        btn.onclick = () => { state.lang = code; state.category = "すべて"; state.tag = null; render(); };
         el.appendChild(btn);
       }
     }
@@ -331,7 +445,7 @@
         const btn = document.createElement("button");
         btn.className = "filter-btn" + (cat === state.category ? " active" : "");
         btn.textContent = cat;
-        btn.onclick = () => { state.category = cat; render(); };
+        btn.onclick = () => { state.category = cat; state.tag = null; render(); };
         el.appendChild(btn);
       }
       const likeBtn = document.createElement("button");
@@ -347,16 +461,46 @@
       el.appendChild(unreadBtn);
     }
 
+    function renderTagFilterBar() {
+      const el = document.getElementById("tag-filter-bar");
+      el.innerHTML = "";
+      if (!state.tag) return;
+      const chip = document.createElement("button");
+      chip.className = "tag-filter-chip";
+      chip.innerHTML = `🏷 ${state.tag} <span aria-hidden="true">✕</span>`;
+      chip.onclick = () => { state.tag = null; render(); };
+      el.appendChild(chip);
+    }
+
+    function toggleTag(t) {
+      state.tag = (state.tag === t) ? null : t;
+      state.category = "すべて";
+      render();
+    }
+
     function buildArticleCard(a) {
       const card = document.createElement("div");
-      card.className = "article" + (isRead(a.url) ? " read" : "");
+      card.className = "article-card" + (isRead(a.url) ? " read" : "");
 
-      const link = document.createElement("a");
-      link.className = "article-link";
-      link.href = a.url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.addEventListener("click", () => markRead(a.url));
+      if (a.image) {
+        const thumbLink = document.createElement("a");
+        thumbLink.className = "thumb-link";
+        thumbLink.href = a.url;
+        thumbLink.target = "_blank";
+        thumbLink.rel = "noopener noreferrer";
+        thumbLink.addEventListener("click", () => markRead(a.url));
+        const thumb = document.createElement("img");
+        thumb.className = "thumb";
+        thumb.src = a.image;
+        thumb.alt = "";
+        thumb.loading = "lazy";
+        thumb.onerror = () => { thumbLink.remove(); };
+        thumbLink.appendChild(thumb);
+        card.appendChild(thumbLink);
+      }
+
+      const body = document.createElement("div");
+      body.className = "article-body";
 
       const top = document.createElement("div");
       top.className = "article-top";
@@ -369,22 +513,19 @@
       likeButton.setAttribute("aria-label", "いいね");
       likeButton.onclick = () => toggleLike(a.url);
       top.appendChild(likeButton);
-      card.appendChild(top);
+      body.appendChild(top);
+
+      const link = document.createElement("a");
+      link.className = "article-link";
+      link.href = a.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.addEventListener("click", () => markRead(a.url));
 
       const titleEl = document.createElement("div");
       titleEl.className = "article-title";
       titleEl.textContent = a.title;
       link.appendChild(titleEl);
-
-      if (a.image) {
-        const thumb = document.createElement("img");
-        thumb.className = "thumb";
-        thumb.src = a.image;
-        thumb.alt = "";
-        thumb.loading = "lazy";
-        thumb.onerror = () => { thumb.remove(); };
-        link.appendChild(thumb);
-      }
 
       if (a.summary) {
         const summaryEl = document.createElement("div");
@@ -392,15 +533,22 @@
         summaryEl.textContent = a.summary;
         link.appendChild(summaryEl);
       }
+      body.appendChild(link);
 
       if (a.tags && a.tags.length) {
         const tagRow = document.createElement("div");
         tagRow.className = "tag-row";
-        tagRow.innerHTML = a.tags.map(t => `<span class="tag">#${t}</span>`).join("");
-        link.appendChild(tagRow);
+        for (const t of a.tags) {
+          const tagBtn = document.createElement("button");
+          tagBtn.className = "tag" + (state.tag === t ? " active" : "");
+          tagBtn.textContent = `#${t}`;
+          tagBtn.onclick = () => toggleTag(t);
+          tagRow.appendChild(tagBtn);
+        }
+        body.appendChild(tagRow);
       }
 
-      card.appendChild(link);
+      card.appendChild(body);
       return card;
     }
 
@@ -435,6 +583,9 @@
       let filtered = state.category === "すべて"
         ? inLang
         : inLang.filter(a => a.category === state.category);
+      if (state.tag) {
+        filtered = filtered.filter(a => a.tags && a.tags.includes(state.tag));
+      }
       if (state.likesOnly) {
         filtered = filtered.filter(a => likes[a.url]);
       }
