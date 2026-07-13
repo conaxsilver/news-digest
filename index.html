@@ -86,16 +86,22 @@
     padding-bottom: 0.3rem;
   }
   .article {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 0.8rem 1rem;
     margin-bottom: 0.6rem;
+  }
+  .article-link {
+    flex: 1;
+    min-width: 0;
     text-decoration: none;
     color: var(--text);
   }
-  .article:active {
+  .article-link:active {
     opacity: 0.8;
   }
   .article-title {
@@ -111,6 +117,36 @@
     padding: 0.1rem 0.5rem;
     margin-bottom: 0.35rem;
   }
+  .like-btn {
+    flex-shrink: 0;
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem;
+    color: var(--text-muted);
+  }
+  .like-btn.liked {
+    color: #e0245e;
+  }
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .copy-btn {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
   .empty {
     color: var(--text-muted);
     text-align: center;
@@ -120,18 +156,65 @@
 </head>
 <body>
   <h1>発見ニュースまとめ</h1>
-  <div class="updated" id="updated"></div>
+  <div class="toolbar">
+    <div class="updated" id="updated"></div>
+    <button class="copy-btn" id="copy-likes-btn">♥ 好みをコピー</button>
+  </div>
   <div class="filters lang-filters" id="lang-filters"></div>
   <div class="filters" id="filters"></div>
   <div id="list"></div>
 
   <script>
     const LANGS = { ja: "日本語", en: "English", es: "Español" };
-    const state = { articles: [], lang: "ja", category: "すべて" };
+    const LIKES_KEY = "newsDigestLikes";
+    const state = { articles: [], lang: "ja", category: "すべて", likesOnly: false };
+
+    function loadLikes() {
+      try {
+        return JSON.parse(localStorage.getItem(LIKES_KEY)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function saveLikes(likes) {
+      localStorage.setItem(LIKES_KEY, JSON.stringify(likes));
+    }
+
+    function isLiked(url) {
+      return !!loadLikes()[url];
+    }
+
+    function toggleLike(url) {
+      const likes = loadLikes();
+      if (likes[url]) {
+        delete likes[url];
+      } else {
+        likes[url] = true;
+      }
+      saveLikes(likes);
+      render();
+    }
+
+    async function copyLikesToClipboard() {
+      const likes = loadLikes();
+      const liked = state.articles.filter(a => likes[a.url]);
+      const text = JSON.stringify(
+        liked.map(a => ({ date: a.date, lang: a.lang, category: a.category, title: a.title, url: a.url })),
+        null, 2
+      );
+      try {
+        await navigator.clipboard.writeText(text || "[]");
+        alert(`${liked.length}件の「いいね」記事をコピーしました。次回Claudeに更新を頼むときに貼り付けてください。`);
+      } catch {
+        alert("コピーに失敗しました。ブラウザの権限設定を確認してください。");
+      }
+    }
 
     async function load() {
       const res = await fetch("data/news.json", { cache: "no-store" });
       state.articles = await res.json();
+      document.getElementById("copy-likes-btn").onclick = copyLikesToClipboard;
       render();
     }
 
@@ -173,15 +256,24 @@
         btn.onclick = () => { state.category = cat; render(); };
         el.appendChild(btn);
       }
+      const likeBtn = document.createElement("button");
+      likeBtn.className = "filter-btn" + (state.likesOnly ? " active" : "");
+      likeBtn.textContent = "♥ お気に入りのみ";
+      likeBtn.onclick = () => { state.likesOnly = !state.likesOnly; render(); };
+      el.appendChild(likeBtn);
     }
 
     function renderList() {
       const el = document.getElementById("list");
       el.innerHTML = "";
+      const likes = loadLikes();
       const inLang = state.articles.filter(a => a.lang === state.lang);
-      const filtered = state.category === "すべて"
+      let filtered = state.category === "すべて"
         ? inLang
         : inLang.filter(a => a.category === state.category);
+      if (state.likesOnly) {
+        filtered = filtered.filter(a => likes[a.url]);
+      }
 
       if (!filtered.length) {
         el.innerHTML = '<div class="empty">記事がありません</div>';
@@ -203,13 +295,26 @@
         group.appendChild(heading);
 
         for (const a of byDate[date]) {
+          const card = document.createElement("div");
+          card.className = "article";
+
           const link = document.createElement("a");
-          link.className = "article";
+          link.className = "article-link";
           link.href = a.url;
           link.target = "_blank";
           link.rel = "noopener noreferrer";
           link.innerHTML = `<span class="chip">${a.category}</span><div class="article-title">${a.title}</div>`;
-          group.appendChild(link);
+          card.appendChild(link);
+
+          const liked = isLiked(a.url);
+          const likeButton = document.createElement("button");
+          likeButton.className = "like-btn" + (liked ? " liked" : "");
+          likeButton.textContent = liked ? "♥" : "♡";
+          likeButton.setAttribute("aria-label", "いいね");
+          likeButton.onclick = () => toggleLike(a.url);
+          card.appendChild(likeButton);
+
+          group.appendChild(card);
         }
         el.appendChild(group);
       }
