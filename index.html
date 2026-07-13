@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>発見ニュースまとめ</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f7f5;
+    --card-bg: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --border: #e4e4e0;
+    --accent: #2563eb;
+    --chip-bg: #eef2ff;
+    --chip-text: #3730a3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14151a;
+      --card-bg: #1d1e24;
+      --text: #f0f0f0;
+      --text-muted: #9a9aa5;
+      --border: #2c2d34;
+      --accent: #7aa2ff;
+      --chip-bg: #232a45;
+      --chip-text: #b3c2ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    line-height: 1.6;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0.2rem;
+  }
+  .updated {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .filter-btn {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .date-group {
+    margin-bottom: 1.5rem;
+  }
+  .date-heading {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+  }
+  .article {
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.6rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .article:active {
+    opacity: 0.8;
+  }
+  .article-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .chip {
+    display: inline-block;
+    background: var(--chip-bg);
+    color: var(--chip-text);
+    font-size: 0.75rem;
+    border-radius: 6px;
+    padding: 0.1rem 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+  .empty {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem 0;
+  }
+</style>
+</head>
+<body>
+  <h1>発見ニュースまとめ</h1>
+  <div class="updated" id="updated"></div>
+  <div class="filters" id="filters"></div>
+  <div id="list"></div>
+
+  <script>
+    const state = { articles: [], category: "すべて" };
+
+    async function load() {
+      const res = await fetch("data/news.json", { cache: "no-store" });
+      state.articles = await res.json();
+      render();
+    }
+
+    function render() {
+      renderUpdated();
+      renderFilters();
+      renderList();
+    }
+
+    function renderUpdated() {
+      const el = document.getElementById("updated");
+      if (!state.articles.length) { el.textContent = ""; return; }
+      const latest = [...state.articles].sort((a, b) => b.date.localeCompare(a.date))[0];
+      el.textContent = `最終更新: ${latest.date} / 記事数: ${state.articles.length}`;
+    }
+
+    function renderFilters() {
+      const cats = ["すべて", ...new Set(state.articles.map(a => a.category))];
+      const el = document.getElementById("filters");
+      el.innerHTML = "";
+      for (const cat of cats) {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn" + (cat === state.category ? " active" : "");
+        btn.textContent = cat;
+        btn.onclick = () => { state.category = cat; render(); };
+        el.appendChild(btn);
+      }
+    }
+
+    function renderList() {
+      const el = document.getElementById("list");
+      el.innerHTML = "";
+      const filtered = state.category === "すべて"
+        ? state.articles
+        : state.articles.filter(a => a.category === state.category);
+
+      if (!filtered.length) {
+        el.innerHTML = '<div class="empty">記事がありません</div>';
+        return;
+      }
+
+      const byDate = {};
+      for (const a of filtered) {
+        (byDate[a.date] ??= []).push(a);
+      }
+      const dates = Object.keys(byDate).sort((a, b) => b.localeCompare(a));
+
+      for (const date of dates) {
+        const group = document.createElement("div");
+        group.className = "date-group";
+        const heading = document.createElement("div");
+        heading.className = "date-heading";
+        heading.textContent = date;
+        group.appendChild(heading);
+
+        for (const a of byDate[date]) {
+          const link = document.createElement("a");
+          link.className = "article";
+          link.href = a.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.innerHTML = `<span class="chip">${a.category}</span><div class="article-title">${a.title}</div>`;
+          group.appendChild(link);
+        }
+        el.appendChild(group);
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>
