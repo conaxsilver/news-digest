@@ -4,8 +4,8 @@
 
 ## 構成
 
-- `index.html` : サイト本体。`data/news.json` を読み込んで一覧表示する。上部に言語タブ(日本語/English/Español)、その下にカテゴリフィルタ+「♥ お気に入りのみ」「未読のみ」トグルがある。各記事にハートボタンで「いいね」を付けられる。
-- `data/news.json` : 記事データ本体。`{ date, lang, category, title, summary, url }` の配列。`lang` は `ja` / `en` / `es` のいずれか。`summary` は1〜2文程度の概略。
+- `index.html` : サイト本体。`data/news.json` を読み込んで一覧表示する。上部に言語タブ(日本語/English/Español)、その下にカテゴリフィルタ+「♥ お気に入りのみ」「未読のみ」トグルがある。各記事にサムネイル画像・タグ・ハートボタン(いいね)が付く。
+- `data/news.json` : 記事データ本体。`{ date, lang, category, title, summary, tags, image, url }` の配列。`lang` は `ja` / `en` / `es` のいずれか。`summary` は1〜2文程度の概略。`tags` は内容に関連するタグの配列。`image` はサムネイル画像URL(**任意項目**、取得できなければ省略してよい。省略時はカテゴリの頭文字のプレースホルダーが表示される)。
 
 ## いいね機能について
 
@@ -23,7 +23,7 @@
 
 1. (あれば)貼り付けられた「いいね」記事の傾向を参考にする
 2. Web検索で科学・考古学・歴史発見系の新しい記事を探す(日本語・英語・スペイン語それぞれ)
-3. `data/news.json` に新しいエントリを追加。各エントリに1〜2文の`summary`(記事概略)をClaudeが検索結果をもとに書く(`date` はYYYY-MM-DD形式、`lang` は記事の言語)
+3. `data/news.json` に新しいエントリを追加。各エントリに1〜2文の`summary`、内容に沿った`tags`をClaudeが検索結果をもとに書く(`date` はYYYY-MM-DD形式、`lang` は記事の言語)。`image` はWebFetchで記事のメイン画像URLを取得できた場合のみ設定する(ドメインが記事と無関係に見える場合や取得失敗時は省略し、無理に埋めない)
 4. `git add` → `git commit` → `git push`
 5. pushするとGitHub Pagesが自動で再ビルドし、数分でサイトに反映される
 

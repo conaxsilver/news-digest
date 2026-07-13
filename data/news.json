@@ -5,6 +5,7 @@
     "category": "考古学",
     "title": "エジプトの海岸都市マリーナ・エル・アラメインで2000年前の墓18基と「黄金の舌」の護符を発見",
     "summary": "エジプト北西部の海岸遺跡で、プトレマイオス朝からローマ時代の墓18基を発見。死者の口に金製の「黄金の舌」の護符を収める古代の葬送儀礼が確認された。",
+    "tags": ["エジプト", "考古学", "古代ローマ", "黄金の舌"],
     "url": "https://news.yahoo.co.jp/articles/68bdbda9508c5e86e3ec242a5f482e6cce7d8ec8"
   },
   {
@@ -13,6 +14,8 @@
     "category": "宇宙科学",
     "title": "はやぶさ2、小惑星「トリフネ」への高速フライバイに成功",
     "summary": "小惑星探査機「はやぶさ2」が拡張ミッション最初の目標である小惑星「トリフネ」へ秒速5kmで接近・通過し、観測に成功した。",
+    "tags": ["はやぶさ2", "小惑星探査", "JAXA", "宇宙"],
+    "image": "https://imgu.web.nhk/news/u/news/html/20260705/K10015168951_2607051346_0705134813_01_03.jpg",
     "url": "https://news.web.nhk/newsweb/na/na-k10015168951000"
   },
   {
@@ -21,6 +24,8 @@
     "category": "Archaeology",
     "title": "18 ancient tombs in Egypt yield 'golden tongue' amulets at Marina El Alamein",
     "summary": "Archaeologists uncovered 18 Ptolemaic-to-Roman era tombs at Marina El Alamein, including 24 gold 'tongue' amulets placed in the mouths of the dead as part of an ancient afterlife ritual.",
+    "tags": ["Egypt", "Archaeology", "Ancient Rome", "Gold Amulets"],
+    "image": "https://images.euronews.com/articles/stories/09/83/07/37/1536x864_cmsv2_f520b8cd-c5ee-5247-bfe9-f779403b2a86-9830737.jpg",
     "url": "https://www.euronews.com/culture/2026/07/09/archaeology-18-ancient-tombs-in-egypt-yield-golden-tongue-amulets"
   },
   {
@@ -29,6 +34,7 @@
     "category": "Archaeology",
     "title": "New archaeological discoveries in Israel shed light on early human life and Byzantine Christian artifacts",
     "summary": "New excavations in Israel revealed evidence of early human life alongside Byzantine-era Christian artifacts, adding to the region's layered archaeological record.",
+    "tags": ["Israel", "Archaeology", "Early Humans", "Byzantine"],
     "url": "https://www.eurasiareview.com/07072026-new-archaeological-discoveries-in-israel-shed-light-on-early-human-life-and-byzantine-christian-artifacts/"
   },
   {
@@ -37,6 +43,8 @@
     "category": "Arqueología",
     "title": "Descubren una antigua ciudad oculta en la costa del Mediterráneo: tumbas intactas y lenguas de oro en Marina El Alamein",
     "summary": "Arqueólogos hallaron una ciudad antigua junto al Mediterráneo con tumbas intactas y amuletos de lengua de oro, revelando rituales funerarios desconocidos hasta ahora.",
+    "tags": ["Egipto", "Arqueología", "Antigua Roma", "Lenguas de Oro"],
+    "image": "https://www.infobae.com/resizer/v2/3SX2B3SZNRFFRBJQYM4LJNLIKE.jfif",
     "url": "https://www.infobae.com/america/ciencia-america/2026/07/10/descubren-una-antigua-ciudad-oculta-en-egipto-los-hallazgos-arqueologicos-revelaron-rituales-funerarios-desconocidos/"
   },
   {
@@ -45,6 +53,7 @@
     "category": "Arqueología",
     "title": "Descubrimiento en Egipto: 18 tumbas con lenguas de oro y sarcófago de granito en Marina El Alamein",
     "summary": "Se descubrieron 18 tumbas con lenguas de oro y un sarcófago de granito de 2,5 metros en el yacimiento de Marina El Alamein, cerca de Alejandría.",
+    "tags": ["Egipto", "Arqueología", "Sarcófago"],
     "url": "https://prensamercosur.org/2026/07/11/descubrimiento-en-egipto-18-tumbas-con-lenguas-de-oro-y-sarcofago-de-granito-en-marina-el-alamein-cerca-de-alejandria/"
   }
 ]
