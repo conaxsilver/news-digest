@@ -5,21 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>発見ニュースまとめ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%AD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: light dark;
-    --bg: #f5f6f8;
+    --bg: #f4f5f9;
     --bg-elevated: #ffffff;
     --text: #14161a;
     --text-muted: #5b6270;
     --border: #e2e4e9;
     --accent: #4f46e5;
+    --accent-2: #db2777;
     --accent-contrast: #ffffff;
     --chip-bg: #eef0ff;
     --chip-text: #4338ca;
     --danger: #e0245e;
     --shadow: 0 1px 2px rgba(16,24,40,.04), 0 2px 8px rgba(16,24,40,.06);
-    --shadow-hover: 0 4px 10px rgba(16,24,40,.08), 0 8px 20px rgba(16,24,40,.08);
+    --shadow-hover: 0 10px 24px -6px color-mix(in srgb, var(--accent) 35%, transparent), 0 4px 10px rgba(16,24,40,.08);
     --maxw: 1080px;
   }
   @media (prefers-color-scheme: dark) {
@@ -30,11 +34,12 @@
       --text-muted: #9298a5;
       --border: #2a2d34;
       --accent: #818cf8;
+      --accent-2: #f472b6;
       --accent-contrast: #0b0c0f;
       --chip-bg: #23263a;
       --chip-text: #c7d2fe;
       --shadow: 0 1px 2px rgba(0,0,0,.4), 0 2px 10px rgba(0,0,0,.3);
-      --shadow-hover: 0 6px 16px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.35);
+      --shadow-hover: 0 10px 26px -6px color-mix(in srgb, var(--accent) 45%, transparent), 0 6px 16px rgba(0,0,0,.4);
     }
   }
   * { box-sizing: border-box; }
@@ -42,22 +47,26 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
     line-height: 1.6;
   }
   a { color: inherit; }
 
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    padding: 0.9rem clamp(1rem, 4vw, 2rem) 0.7rem;
+  .top-accent-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #4338ca, #7c3aed, #db2777, #f59e0b);
   }
-  .header-inner {
+
+  /* ---- Masthead (scrolls away, not sticky) ---- */
+  .masthead {
+    background: linear-gradient(135deg, #4338ca 0%, #6d28d9 55%, #9333ea 100%);
+    color: #fff;
+    padding: 1.5rem clamp(1rem, 4vw, 2rem) 1.3rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .masthead { background: linear-gradient(135deg, #1e1b4b 0%, #3b0764 60%, #4c0519 100%); }
+  }
+  .masthead-inner {
     max-width: var(--maxw);
     margin: 0 auto;
     display: flex;
@@ -65,22 +74,46 @@
     align-items: flex-end;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 0.7rem;
+  }
+  .brand { display: flex; align-items: center; gap: 0.7rem; }
+  .brand-badge {
+    font-size: 1.7rem;
+    background: rgba(255,255,255,.16);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+    border-radius: 12px;
+    padding: 0.4rem 0.55rem;
+    line-height: 1;
   }
   .brand h1 {
-    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
-    margin: 0 0 0.15rem;
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    font-weight: 800;
+    margin: 0;
     letter-spacing: -0.01em;
   }
   .brand .tagline {
-    margin: 0;
-    color: var(--text-muted);
+    margin: 0.2rem 0 0;
+    color: rgba(255,255,255,.82);
     font-size: 0.85rem;
   }
-  .updated {
-    color: var(--text-muted);
-    font-size: 0.8rem;
+  .masthead .updated {
+    color: rgba(255,255,255,.85);
+    font-size: 0.78rem;
+    background: rgba(255,255,255,.14);
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
     white-space: nowrap;
+  }
+
+  /* ---- Sticky toolbar (slim, always visible) ---- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.7rem clamp(1rem, 4vw, 2rem) 0;
   }
   .toolbar-row {
     max-width: var(--maxw);
@@ -89,20 +122,54 @@
     justify-content: space-between;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+    padding-bottom: 0.6rem;
   }
+  .toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .filter-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+    max-width: 46vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .filter-toggle-btn.has-filter { border-color: var(--accent); color: var(--accent); }
+  .filter-toggle-btn .chevron { font-size: 0.65rem; transition: transform .2s ease; flex-shrink: 0; }
+  .filter-toggle-btn[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
   .copy-btn {
     border: 1px solid var(--border);
     background: var(--bg-elevated);
     color: var(--text);
-    border-radius: 8px;
+    border-radius: 999px;
     padding: 0.35rem 0.75rem;
     font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
     box-shadow: var(--shadow);
   }
   .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn-short { display: none; }
+  @media (max-width: 380px) {
+    .copy-btn-full { display: none; }
+    .copy-btn-short { display: inline; }
+  }
 
   .filters {
     max-width: var(--maxw);
@@ -119,16 +186,41 @@
     border-radius: 999px;
     padding: 0.32rem 0.85rem;
     font-size: 0.83rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background .12s ease, color .12s ease, border-color .12s ease;
+    transition: background .12s ease, color .12s ease, border-color .12s ease, box-shadow .12s ease, transform .12s ease;
   }
-  .filter-btn:hover { border-color: var(--accent); }
+  .filter-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
   .filter-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-color: transparent;
     color: var(--accent-contrast);
+    box-shadow: 0 4px 12px -2px color-mix(in srgb, var(--accent) 45%, transparent);
   }
-  .lang-filters .filter-btn { font-weight: 600; }
+  .lang-filters .filter-btn { font-weight: 700; }
+
+  /* ---- Collapsible filter panel (categories + tag chip + toggles) ---- */
+  .filter-panel {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    overflow: hidden;
+    max-height: 640px;
+    opacity: 1;
+    transition: max-height .28s ease, opacity .2s ease, padding .2s ease;
+  }
+  .filter-panel.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  @media (min-width: 860px) {
+    .filter-toggle-btn { display: none; }
+    .filter-panel, .filter-panel.collapsed {
+      max-height: none !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+  }
 
   .tag-filter-bar {
     max-width: var(--maxw);
@@ -152,19 +244,20 @@
   main {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 1.2rem clamp(1rem, 4vw, 2rem) 3rem;
+    padding: 1.4rem clamp(1rem, 4vw, 2rem) 3rem;
   }
 
   .category-group { margin-bottom: 1.6rem; }
   .category-summary {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.02rem;
+    font-weight: 800;
     color: var(--text);
     cursor: pointer;
     padding: 0.5rem 0.1rem;
     border-bottom: 2px solid var(--border);
     margin-bottom: 0.9rem;
     list-style: none;
+    letter-spacing: -0.01em;
   }
   .category-summary::-webkit-details-marker { display: none; }
   .category-summary::before {
@@ -177,7 +270,7 @@
   details[open] > .category-summary::before { transform: rotate(90deg); }
   .category-summary .cat-count {
     color: var(--text-muted);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 0.78rem;
     margin-left: 0.4rem;
   }
@@ -185,15 +278,17 @@
   .date-group {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.9rem;
-    margin-bottom: 1.4rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   .date-heading {
     grid-column: 1 / -1;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-muted);
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .article-card {
@@ -201,30 +296,32 @@
     flex-direction: column;
     background: var(--bg-elevated);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 16px;
     box-shadow: var(--shadow);
     overflow: hidden;
-    transition: transform .15s ease, box-shadow .15s ease;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   }
   @media (hover: hover) {
-    .article-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .article-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
+    .article-card:hover .thumb { transform: scale(1.05); }
   }
-  .article-card.read { opacity: 0.6; }
+  .article-card.read { opacity: 0.7; }
 
-  .thumb-link { display: block; line-height: 0; }
+  .thumb-link { display: block; line-height: 0; overflow: hidden; }
   .thumb {
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     background: var(--chip-bg);
+    transition: transform .35s ease;
   }
 
   .article-body {
-    padding: 0.85rem 1rem 1rem;
+    padding: 0.9rem 1.05rem 1.05rem;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.4rem;
     flex: 1;
   }
   .article-top {
@@ -233,14 +330,31 @@
     align-items: flex-start;
     gap: 0.5rem;
   }
+  .article-top-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
   .chip {
     display: inline-block;
-    background: var(--chip-bg);
-    color: var(--chip-text);
-    font-size: 0.72rem;
-    font-weight: 600;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
     border-radius: 6px;
-    padding: 0.12rem 0.55rem;
+    padding: 0.16rem 0.6rem;
+    box-shadow: 0 2px 6px -2px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+  .read-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.14rem 0.5rem;
   }
   .like-btn {
     flex-shrink: 0;
@@ -251,7 +365,9 @@
     cursor: pointer;
     padding: 0;
     color: var(--text-muted);
+    transition: transform .12s ease;
   }
+  .like-btn:hover { transform: scale(1.15); }
   .like-btn.liked { color: var(--danger); }
 
   .article-link {
@@ -259,9 +375,10 @@
     color: var(--text);
   }
   .article-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.02rem;
+    font-weight: 700;
     line-height: 1.4;
+    letter-spacing: -0.005em;
   }
   .article-summary {
     font-size: 0.85rem;
@@ -280,12 +397,13 @@
     background: none;
     color: var(--text-muted);
     font-size: 0.7rem;
+    font-weight: 500;
     border-radius: 999px;
     padding: 0.08rem 0.55rem;
     cursor: pointer;
   }
   .tag:hover { border-color: var(--accent); color: var(--accent); }
-  .tag.active { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+  .tag.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; color: var(--accent-contrast); }
 
   .empty {
     color: var(--text-muted);
@@ -296,29 +414,49 @@
   .site-footer {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 1rem clamp(1rem, 4vw, 2rem) 2.5rem;
+    padding: 1.4rem clamp(1rem, 4vw, 2rem) 2.5rem;
     color: var(--text-muted);
     font-size: 0.78rem;
     text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
   }
-  .site-footer a { color: var(--text-muted); text-decoration: underline; }
+  .site-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .site-footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
+  <div class="top-accent-bar" aria-hidden="true"></div>
+
+  <div class="masthead">
+    <div class="masthead-inner">
       <div class="brand">
-        <h1>🔭 発見ニュースまとめ</h1>
-        <p class="tagline">科学・考古学・歴史発見とローカルニュースのダイジェスト</p>
+        <span class="brand-badge" aria-hidden="true">🔭</span>
+        <div>
+          <h1>発見ニュースまとめ</h1>
+          <p class="tagline">科学・考古学・歴史発見とローカルニュースのダイジェスト</p>
+        </div>
       </div>
       <div class="updated" id="updated"></div>
     </div>
+  </div>
+
+  <header class="site-header">
     <div class="toolbar-row">
-      <div class="filters lang-filters" id="lang-filters" style="padding-bottom:0;"></div>
-      <button class="copy-btn" id="copy-likes-btn">♥ 好みをコピー</button>
+      <div class="filters lang-filters" id="lang-filters"></div>
+      <div class="toolbar-actions">
+        <button class="filter-toggle-btn" id="filter-toggle-btn" type="button" aria-expanded="false" aria-controls="filter-panel">
+          <span id="filter-toggle-label">カテゴリ</span><span class="chevron" aria-hidden="true">▾</span>
+        </button>
+        <button class="copy-btn" id="copy-likes-btn" type="button">
+          <span class="copy-btn-full">♥ 好みをコピー</span><span class="copy-btn-short" aria-hidden="true">♥</span>
+        </button>
+      </div>
     </div>
-    <div class="filters" id="filters"></div>
-    <div class="tag-filter-bar" id="tag-filter-bar"></div>
+    <div class="filter-panel" id="filter-panel">
+      <div class="filters" id="filters"></div>
+      <div class="tag-filter-bar" id="tag-filter-bar"></div>
+    </div>
   </header>
 
   <main>
@@ -334,7 +472,12 @@
     const LANGS = { ja: "日本語", en: "English", es: "Español" };
     const LIKES_KEY = "newsDigestLikes";
     const READS_KEY = "newsDigestReads";
-    const state = { articles: [], lang: "ja", category: "すべて", tag: null, likesOnly: false, unreadOnly: false };
+    const DESKTOP_QUERY = "(min-width: 860px)";
+    const state = { articles: [], lang: "ja", category: "すべて", tag: null, likesOnly: false, unreadOnly: false, filtersOpen: false };
+
+    function isDesktop() {
+      return window.matchMedia(DESKTOP_QUERY).matches;
+    }
 
     function loadFromStorage(key) {
       try {
@@ -406,6 +549,10 @@
       const res = await fetch("data/news.json", { cache: "no-store" });
       state.articles = await res.json();
       document.getElementById("copy-likes-btn").onclick = copyLikesToClipboard;
+      document.getElementById("filter-toggle-btn").onclick = () => {
+        state.filtersOpen = !state.filtersOpen;
+        render();
+      };
       render();
     }
 
@@ -414,6 +561,7 @@
       renderLangFilters();
       renderFilters();
       renderTagFilterBar();
+      renderFilterToggle();
       renderList();
     }
 
@@ -445,7 +593,12 @@
         const btn = document.createElement("button");
         btn.className = "filter-btn" + (cat === state.category ? " active" : "");
         btn.textContent = cat;
-        btn.onclick = () => { state.category = cat; state.tag = null; render(); };
+        btn.onclick = () => {
+          state.category = cat;
+          state.tag = null;
+          if (!isDesktop()) state.filtersOpen = false;
+          render();
+        };
         el.appendChild(btn);
       }
       const likeBtn = document.createElement("button");
@@ -472,9 +625,25 @@
       el.appendChild(chip);
     }
 
+    function renderFilterToggle() {
+      const btn = document.getElementById("filter-toggle-btn");
+      const panel = document.getElementById("filter-panel");
+      const label = document.getElementById("filter-toggle-label");
+      panel.classList.toggle("collapsed", !state.filtersOpen);
+      btn.setAttribute("aria-expanded", String(state.filtersOpen));
+      const parts = [];
+      if (state.category !== "すべて") parts.push(state.category);
+      if (state.tag) parts.push("#" + state.tag);
+      if (state.likesOnly) parts.push("♥");
+      if (state.unreadOnly) parts.push("未読");
+      label.textContent = parts.length ? parts.join(" / ") : "カテゴリ";
+      btn.classList.toggle("has-filter", parts.length > 0);
+    }
+
     function toggleTag(t) {
       state.tag = (state.tag === t) ? null : t;
       state.category = "すべて";
+      if (!isDesktop()) state.filtersOpen = false;
       render();
     }
 
@@ -504,7 +673,20 @@
 
       const top = document.createElement("div");
       top.className = "article-top";
-      top.innerHTML = `<span class="chip">${a.category}</span>`;
+
+      const topLeft = document.createElement("div");
+      topLeft.className = "article-top-left";
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      chip.textContent = a.category;
+      topLeft.appendChild(chip);
+      if (isRead(a.url)) {
+        const readBadge = document.createElement("span");
+        readBadge.className = "read-badge";
+        readBadge.textContent = "既読";
+        topLeft.appendChild(readBadge);
+      }
+      top.appendChild(topLeft);
 
       const liked = isLiked(a.url);
       const likeButton = document.createElement("button");
