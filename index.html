@@ -171,6 +171,50 @@
     .copy-btn-short { display: inline; }
   }
 
+  .search-row {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-bottom: 0.6rem;
+  }
+  .search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .search-input {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.5rem 2.2rem 0.5rem 2.1rem;
+    font-size: 0.88rem;
+    box-shadow: var(--shadow);
+    font-family: inherit;
+  }
+  .search-input:focus { outline: none; border-color: var(--accent); }
+  .search-input::-webkit-search-cancel-button { display: none; }
+  .search-clear {
+    position: absolute;
+    right: 0.5rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    line-height: 1;
+  }
+  .search-clear:hover { color: var(--accent); }
+  .search-clear[hidden] { display: none; }
+
   .filters {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -442,6 +486,13 @@
   </div>
 
   <header class="site-header">
+    <div class="search-row">
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input type="search" id="search-input" class="search-input" autocomplete="off">
+        <button class="search-clear" id="search-clear" type="button" aria-label="検索をクリア" hidden>✕</button>
+      </div>
+    </div>
     <div class="toolbar-row">
       <div class="filters lang-filters" id="lang-filters"></div>
       <div class="toolbar-actions">
@@ -473,7 +524,12 @@
     const LIKES_KEY = "newsDigestLikes";
     const READS_KEY = "newsDigestReads";
     const DESKTOP_QUERY = "(min-width: 860px)";
-    const state = { articles: [], lang: "ja", category: "すべて", tag: null, likesOnly: false, unreadOnly: false, filtersOpen: false };
+    const SEARCH_PLACEHOLDERS = {
+      ja: "キーワード検索(タイトル・概要・タグ)",
+      en: "Search titles, summaries, tags",
+      es: "Buscar por título, resumen o etiqueta"
+    };
+    const state = { articles: [], lang: "ja", category: "すべて", tag: null, query: "", likesOnly: false, unreadOnly: false, filtersOpen: false };
 
     function isDesktop() {
       return window.matchMedia(DESKTOP_QUERY).matches;
@@ -553,11 +609,30 @@
         state.filtersOpen = !state.filtersOpen;
         render();
       };
+      const searchInput = document.getElementById("search-input");
+      searchInput.oninput = (e) => {
+        state.query = e.target.value;
+        renderSearchClear();
+        renderList();
+      };
+      document.getElementById("search-clear").onclick = () => {
+        state.query = "";
+        searchInput.value = "";
+        searchInput.focus();
+        renderSearchClear();
+        renderList();
+      };
       render();
+    }
+
+    function renderSearchClear() {
+      document.getElementById("search-clear").hidden = !state.query;
     }
 
     function render() {
       renderUpdated();
+      document.getElementById("search-input").placeholder = SEARCH_PLACEHOLDERS[state.lang];
+      renderSearchClear();
       renderLangFilters();
       renderFilters();
       renderTagFilterBar();
@@ -774,13 +849,22 @@
       if (state.unreadOnly) {
         filtered = filtered.filter(a => !reads[a.url]);
       }
+      const q = state.query.trim().toLowerCase();
+      if (q) {
+        filtered = filtered.filter(a =>
+          a.title.toLowerCase().includes(q) ||
+          (a.summary && a.summary.toLowerCase().includes(q)) ||
+          a.category.toLowerCase().includes(q) ||
+          (a.tags && a.tags.some(t => t.toLowerCase().includes(q)))
+        );
+      }
 
       if (!filtered.length) {
         el.innerHTML = '<div class="empty">記事がありません</div>';
         return;
       }
 
-      if (state.category !== "すべて") {
+      if (state.category !== "すべて" || q) {
         el.appendChild(buildDateGroups(filtered));
         return;
       }
