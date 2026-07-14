@@ -289,5 +289,176 @@
     "summary": "OpenAI hizo disponible para el público su nueva serie de modelos GPT-5.6, tras la aprobación de un lanzamiento más amplio por parte del gobierno de Estados Unidos.",
     "tags": ["IA Generativa", "OpenAI", "ChatGPT"],
     "url": "https://www.elcolombiano.com/tendencias/nuevos-modelos-chatgpt-open-ia-lanzamiento-AI38657564"
+  },
+  {
+    "date": "2026-07-06",
+    "lang": "es",
+    "category": "Arqueología",
+    "title": "Hallan en Perú una ofrenda ritual de 3.800 años vinculada a la civilización Caral, en Peñico",
+    "summary": "El Ministerio de Cultura de Perú anunció el hallazgo en el sitio arqueológico de Peñico (Huaura, Lima) de una ofrenda ritual de 3.800 años de antigüedad, con más de 40 piezas de madera y hueso con figuras antropomorfas y zoomorfas, vinculada al legado de la civilización Caral.",
+    "tags": ["Perú", "Arqueología", "Caral"],
+    "url": "https://www.infobae.com/peru/2026/07/06/importante-descubrimiento-en-peru-hallan-ofrenda-ritual-de-3800-anos-en-penico-que-aporta-nuevas-evidencias-sobre-el-legado-de-caral/"
+  },
+  {
+    "date": "2026-07-04",
+    "lang": "en",
+    "category": "Archaeology",
+    "title": "Egypt uncovers a complete Byzantine-era city buried in the Dakhla Oasis",
+    "summary": "Archaeologists uncovered a well-preserved 4th-century Byzantine residential city at the Ain El-Sabil site in Egypt's Dakhla Oasis, complete with a basilica-style church, planned streets, bronze and gold coins, and over 200 inscribed pottery fragments.",
+    "tags": ["Egypt", "Archaeology", "Byzantine Empire", "Dakhla Oasis"],
+    "url": "https://egyptianstreets.com/2026/07/06/egypt-uncovers-complete-byzantine-era-residential-city-in-dakhla-oasis/"
+  },
+  {
+    "date": "2026-07-04",
+    "lang": "ja",
+    "category": "考古学",
+    "title": "エジプト・ダフラオアシスでほぼ完全な姿のビザンツ時代の都市遺跡を発見",
+    "summary": "エジプト観光考古省は、西部砂漠のダフラオアシスにあるアイン・エル・サビル遺跡で、4世紀のビザンツ時代の住居都市がほぼ完全な形で発見されたと発表。バシリカ様式の教会や計画的な街路網、金貨・銅貨などが確認された。",
+    "tags": ["エジプト", "考古学", "ビザンツ帝国"],
+    "url": "https://www.arabnews.jp/article/middle-east/article_181006"
+  },
+  {
+    "date": "2026-07-03",
+    "lang": "en",
+    "category": "Archaeology",
+    "title": "Rare 1,800-year-old Roman surgical instrument for bladder stone removal found in Bulgaria",
+    "summary": "Archaeologists excavating the Roman-era city of Heraclea Sintica in Bulgaria unearthed a bronze lithulkos, a rare surgical tool used to remove bladder stones, with only one other comparable instrument ever found, in Italy.",
+    "tags": ["Bulgaria", "Archaeology", "Ancient Rome", "Medicine"],
+    "url": "https://www.heritagedaily.com/2026/07/ancient-bladder-stone-surgery-tool-discovered-at-bulgarian-roman-city/158530"
+  },
+  {
+    "date": "2026-07-08",
+    "lang": "en",
+    "category": "Paleontology",
+    "title": "New long-necked dinosaur species Uragasaurus kalasinensis identified in Thailand",
+    "summary": "Paleontologists formally described Uragasaurus kalasinensis, a new mamenchisaurid sauropod identified from a single vertebra found in Kalasin Province, marking the first named mamenchisaurid from Thailand and expanding the group's known range beyond China.",
+    "tags": ["Thailand", "Paleontology", "Dinosaur", "Sauropod"],
+    "url": "https://www.sci.news/paleontology/uragasaurus-kalasinensis-14906.html"
+  },
+  {
+    "date": "2026-07-10",
+    "lang": "ja",
+    "category": "古生物学",
+    "title": "タイで15種目となる新種恐竜「ウラガサウルス・カラシネンシス」を発見",
+    "summary": "タイ東北部カラシン県のプーノイ化石産地で見つかった化石が、新属新種の竜脚類恐竜「ウラガサウルス・カラシネンシス」と命名された。中国以外では珍しいマメンチサウルス科の恐竜で、タイで正式命名された恐竜としては15種目となる。",
+    "tags": ["タイ", "古生物学", "恐竜", "竜脚類"],
+    "url": "https://www.thaich.net/news/20260713wg.htm"
+  },
+  {
+    "date": "2026-07-02",
+    "lang": "en",
+    "category": "Physics",
+    "title": "Physicists extend magnon lifetimes 100-fold, paving way for penny-sized quantum computers",
+    "summary": "A University of Vienna-led team extended the lifetime of magnons, tiny magnetic spin waves, a hundredfold to 18 microseconds, showing the limitation was material purity rather than physics, and opening a path to coin-sized quantum computers.",
+    "tags": ["Physics", "Quantum Computing", "Magnons"],
+    "url": "https://www.sciencedaily.com/releases/2026/06/260626030431.htm"
+  },
+  {
+    "date": "2026-07-01",
+    "lang": "en",
+    "category": "Space",
+    "title": "Astronomers confirm potentially habitable super-Earth GJ 3378b just 25 light-years away",
+    "summary": "A revised mass and orbit for GJ 3378b, a rocky super-Earth 2.3 times Earth's mass orbiting a red dwarf 25 light-years away, place it firmly within its star's habitable zone, though it remains unknown whether the planet retained an atmosphere.",
+    "tags": ["Exoplanet", "Astronomy", "Habitable Zone"],
+    "url": "https://www.space.com/astronomy/exoplanets/astronomers-discover-a-potentially-habitable-planet-just-25-light-years-away-this-one-is-exciting"
+  },
+  {
+    "date": "2026-07-02",
+    "lang": "es",
+    "category": "Astronomía",
+    "title": "Descubren una superTierra potencialmente habitable a solo 25 años luz de la Tierra",
+    "summary": "Astrónomos confirmaron que GJ 3378b, una superTierra de 2,3 masas terrestres que orbita una enana roja a 25 años luz, se encuentra dentro de la zona habitable de su estrella, aunque aún se desconoce si conservó atmósfera.",
+    "tags": ["Exoplaneta", "Astronomía", "Zona Habitable"],
+    "url": "https://www.eldebate.com/ciencia/20260706/busqueda-vida-suma-nuevo-candidato-descubren-supertierra-potencialmente-habitable-25-anos-luz_436513.html"
+  },
+  {
+    "date": "2026-07-07",
+    "lang": "en",
+    "category": "Generative AI",
+    "title": "Anthropic expands Claude Cowork agent to web and mobile",
+    "summary": "Anthropic launched web and mobile (iOS/Android) versions of Claude Cowork, its autonomous AI agent for multi-step office tasks, in beta for Max plan subscribers, letting users start tasks on one device and monitor or continue them from another.",
+    "tags": ["Generative AI", "Anthropic", "Claude", "AI Agent"],
+    "url": "https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/"
+  },
+  {
+    "date": "2026-07-08",
+    "lang": "ja",
+    "category": "生成AI",
+    "title": "AnthropicがAIエージェント「Claude Cowork」をWeb・モバイルに対応",
+    "summary": "Anthropicは「Claude Cowork」をWebブラウザおよびiOS/Androidアプリでも利用できるようにしたと発表。まずはMaxプラン契約者向けのベータ版として提供し、複数ステップの業務をAIが自律的に実行する機能をデスクトップ以外からも扱えるようになった。",
+    "tags": ["生成AI", "Anthropic", "Claude", "AIエージェント"],
+    "url": "https://www.itmedia.co.jp/aiplus/article/2607/08/2000000168/"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "ja",
+    "category": "ローカルニュース",
+    "title": "九州・近畿で熱中症警戒アラート、猛暑は東日本にも拡大へ",
+    "summary": "13日は奄美から近畿にかけて熱中症警戒アラートが発表され、熊本・長崎両県では7日連続の発表に。14日以降は暑さが東海・関東甲信にも広がり、猛暑日が続く見込み。",
+    "tags": ["日本", "気象", "熱中症", "猛暑"],
+    "url": "https://news.web.nhk/newsweb/na/na-k10015175321000"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "en",
+    "category": "Local News (US)",
+    "title": "US launches new strikes on Iran as Strait of Hormuz tensions escalate",
+    "summary": "The US carried out additional strikes against Iran at President Trump's direction, while Iran's military said it disabled two tankers, as the standoff around the Strait of Hormuz intensified after the UAE reported Iranian missiles hit two tankers in its waters.",
+    "tags": ["United States", "Iran", "Military", "Strait of Hormuz"],
+    "url": "https://www.cnn.com/2026/07/13/world/live-news/iran-war-trump"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "en",
+    "category": "Local News (UK)",
+    "title": "England set up World Cup 2026 semifinal showdown with Argentina",
+    "summary": "England advanced to the World Cup 2026 semifinals and will face Argentina on Wednesday at Mercedes-Benz Stadium, as the tournament's final four — England, Argentina, Spain and France — prepared for the last stage before the final.",
+    "tags": ["United Kingdom", "Football", "World Cup", "England"],
+    "url": "https://www.espn.co.uk/football/story/_/id/49348219/world-cup-2026-today-blog-13-07-2026-live-updates-news-fixtures-schedule-results-spain-france-england-argentina"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "es",
+    "category": "Noticias Locales (España)",
+    "title": "Sánchez visita Almería tras el incendio más grave del siglo en España, con 13 muertos",
+    "summary": "El presidente Pedro Sánchez visitó la zona de Los Gallardos, Almería, arrasada por un incendio que dejó 13 muertos y 7.000 hectáreas quemadas, y anunció recursos públicos para la reconstrucción mientras advertía de un 'verano muy duro' por el cambio climático.",
+    "tags": ["España", "Almería", "Incendio", "Emergencia"],
+    "url": "https://www.elindependiente.com/espana/2026/07/13/gobierno-junta-cooperacion-incendio-almeria-emergencia-climatica-mata/"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "es",
+    "category": "Noticias Locales (Argentina)",
+    "title": "La Selección argentina viajó a Atlanta para enfrentar a Inglaterra en semifinales del Mundial",
+    "summary": "Tras clasificar a semifinales del Mundial 2026 con un triunfo sobre Suiza, la Selección argentina entrenó por última vez en Kansas y partió hacia Atlanta para preparar el choque del miércoles ante Inglaterra.",
+    "tags": ["Argentina", "Fútbol", "Mundial 2026", "Selección"],
+    "url": "https://www.ambito.com/deportes/seleccion-argentina-mundial-2026-en-vivo-semifinal-inglaterra-lionel-scaloni-messi-noticias-minuto-a-minuto-en-vivo-13-julio"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "es",
+    "category": "Noticias Locales (México)",
+    "title": "México presentará denuncias en EE.UU. por la muerte de 17 connacionales bajo custodia del ICE",
+    "summary": "La presidenta Claudia Sheinbaum anunció que la Cancillería presentará denuncias penales y civiles ante autoridades estadounidenses por la muerte de 17 mexicanos en operativos y centros de detención del ICE, tras el caso de Lorenzo Salgado Araujo en Houston.",
+    "tags": ["México", "ICE", "Derechos Humanos", "Sheinbaum"],
+    "url": "https://www.infobae.com/mexico/2026/07/13/mexico-demandara-a-eeuu-por-17-muertes-a-manos-del-ice-sheinbaum-hace-un-llamado-a-todos-los-partidos-politicos/"
+  },
+  {
+    "date": "2026-07-10",
+    "lang": "es",
+    "category": "Noticias Locales (Perú)",
+    "title": "Fujimori y la izquierda de Sánchez libran la primera batalla por las comisiones del nuevo Congreso",
+    "summary": "A dos semanas de que Keiko Fujimori asuma la presidencia el 28 de julio, Fuerza Popular y el bloque de Juntos por el Perú de Roberto Sánchez pugnan por presidir las comisiones de Constitución y Economía en el nuevo Congreso bicameral.",
+    "tags": ["Perú", "Política", "Congreso", "Fujimori"],
+    "url": "https://www.eltiempo.com/mundo/latinoamerica/fujimori-y-sanchez-libran-la-primera-batalla-por-el-nuevo-congreso-de-peru-la-izquierda-busca-presidir-constitucion-y-economia-3570414"
+  },
+  {
+    "date": "2026-07-13",
+    "lang": "es",
+    "category": "Noticias Locales (Chile)",
+    "title": "Embargos a deudores del CAE desatan el primer choque entre Boric y el gobierno de Kast",
+    "summary": "El expresidente Gabriel Boric cuestionó los embargos a cuentas de deudores del CAE y acusó 'contradicción' en la derecha, en el primer enfrentamiento público con el nuevo gobierno de José Antonio Kast tras el cambio de mando.",
+    "tags": ["Chile", "Política", "Educación", "CAE"],
+    "url": "https://www.latercera.com/politica/noticia/embargos-a-deudores-del-cae-desatan-primer-choque-entre-boric-y-kast-tras-el-cambio-de-mando/"
   }
 ]
