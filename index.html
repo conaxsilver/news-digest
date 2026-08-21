@@ -823,7 +823,8 @@
         heading.className = "date-heading";
         heading.textContent = date;
         group.appendChild(heading);
-        for (const a of byDate[date]) {
+        const sorted = [...byDate[date]].sort((a, b) => isRead(a.url) - isRead(b.url));
+        for (const a of sorted) {
           group.appendChild(buildArticleCard(a));
         }
         container.appendChild(group);
