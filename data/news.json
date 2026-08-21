@@ -460,5 +460,185 @@
     "summary": "El expresidente Gabriel Boric cuestionó los embargos a cuentas de deudores del CAE y acusó 'contradicción' en la derecha, en el primer enfrentamiento público con el nuevo gobierno de José Antonio Kast tras el cambio de mando.",
     "tags": ["Chile", "Política", "Educación", "CAE"],
     "url": "https://www.latercera.com/politica/noticia/embargos-a-deudores-del-cae-desatan-primer-choque-entre-boric-y-kast-tras-el-cambio-de-mando/"
+  },
+  {
+    "date": "2026-08-15",
+    "lang": "ja",
+    "category": "古生物学",
+    "title": "大阪出土のモササウルス化石、30年越しに未知の骨4点を特定",
+    "summary": "30年以上前に大阪で採集された白亜紀の巨大海生爬虫類モササウルスの化石から、これまで見過ごされていた骨4点が新たに識別された。",
+    "tags": ["古生物学", "モササウルス", "化石", "白亜紀"],
+    "url": "https://www.sci.news/paleontology"
+  },
+  {
+    "date": "2026-08-05",
+    "lang": "ja",
+    "category": "古生物学",
+    "title": "カナダ北西部で5億6700万年前の複雑動物化石を発見、動物の起源を書き換える",
+    "summary": "カナダ・ノースウエスト準州の辺境地で見つかった豊富な化石群が、最古級の動物の姿を示す可能性があり、複雑な多細胞生物の起源に関する理解を塗り替える発見として注目されている。",
+    "tags": ["古生物学", "化石", "動物の起源", "カナダ"],
+    "url": "https://www.sciencedaily.com/releases/2026/08/260804034644.htm"
+  },
+  {
+    "date": "2026-08-19",
+    "lang": "ja",
+    "category": "宇宙科学",
+    "title": "ジェイムズ・ウェッブ望遠鏡、天の川銀河中心のブラックホール近傍の塵と水分子を観測",
+    "summary": "JWSTが天の川銀河中心の超大質量ブラックホール「いて座A*」近傍の塵と水分子を観測。土星の環の放射状構造「スポーク」の謎の解明にもつながる成果が相次いで報告された。",
+    "tags": ["JWST", "宇宙", "ブラックホール", "天の川銀河"],
+    "url": "https://www.isas.jaxa.jp/feature/forefront/"
+  },
+  {
+    "date": "2026-08-14",
+    "lang": "ja",
+    "category": "物理学",
+    "title": "1テラパスカルの衝撃圧縮実験でダイヤモンドの融解を解明",
+    "summary": "1テラパスカル(1000万気圧)級の衝撃圧縮実験により、ダイヤモンドが衝撃で融解する過程とその融解曲線が明らかになった。核融合燃料カプセルや海王星など氷惑星の内部構造の理解にも直結する成果。",
+    "tags": ["物理学", "高圧実験", "ダイヤモンド", "核融合"],
+    "url": "https://physicsdiscussion.com/news.html"
+  },
+  {
+    "date": "2026-08-17",
+    "lang": "ja",
+    "category": "生成AI",
+    "title": "OpenAIがGPT-5.6を正式公開、新世代音声モデル「GPT-Live」も発表",
+    "summary": "OpenAIが次世代モデル群「GPT-5.6」(Sol・Terra・Luna)を正式公開したほか、新しい音声モデル「GPT-Live」を発表。GoogleもGemini 3.6 Flashを投入するなど、8月は主要各社のモデル更新が相次いだ。",
+    "tags": ["生成AI", "OpenAI", "GPT-5.6", "音声AI"],
+    "url": "https://gais.jp/news-2026-08-14/"
+  },
+  {
+    "date": "2026-08-20",
+    "lang": "ja",
+    "category": "ローカルニュース",
+    "title": "私立高校無償化で人気上昇、公立高校志願者が全国で4%余減少",
+    "summary": "高校無償化の拡大を背景に私立高校の人気が高まり、公立高校の志願者数が全国で4%あまり減少していることが分かった。教育現場の構図に変化の兆しが見られる。",
+    "tags": ["教育", "高校無償化", "日本"],
+    "url": "https://gigazine.net/news/20260820-headline/"
+  },
+  {
+    "date": "2026-08-13",
+    "lang": "en",
+    "category": "Archaeology",
+    "title": "Rare Roman villa with westernmost polychrome mosaic unearthed in Devon, Britain",
+    "summary": "Archaeologists excavating a Roman villa in the Devon countryside uncovered a high-status estate with a bathhouse and industrial buildings, including the westernmost polychrome villa mosaic ever found in Britain.",
+    "tags": ["Archaeology", "Roman Britain", "Devon", "Mosaic"],
+    "url": "https://archaeology.org/issues/july-august-2026/"
+  },
+  {
+    "date": "2026-08-13",
+    "lang": "en",
+    "category": "Archaeology",
+    "title": "1,800-year-old marble statue group of Asklepios found in ancient Aspendos, Turkey",
+    "summary": "Excavations at the ancient city of Aspendos in southern Turkey uncovered an 1,800-year-old marble statue group depicting the Greek god of medicine Asklepios and his son Telesphoros, offering insight into Roman-era healing beliefs.",
+    "tags": ["Archaeology", "Turkey", "Roman Empire", "Aspendos"],
+    "url": "https://arkeonews.net/"
+  },
+  {
+    "date": "2026-08-16",
+    "lang": "en",
+    "category": "Paleontology",
+    "title": "New Ice Age spadefoot toad species discovered hiding in La Brea Tar Pits collections",
+    "summary": "Scientists identified a new extinct amphibian species, Spea labreae, the Ice Age spadefoot toad, after re-examining decades-old fossil collections held at Los Angeles' La Brea Tar Pits.",
+    "tags": ["Paleontology", "La Brea Tar Pits", "Fossils", "Ice Age"],
+    "url": "https://www.sciencedaily.com/news/fossils_ruins/paleontology/"
+  },
+  {
+    "date": "2026-08-18",
+    "lang": "en",
+    "category": "Paleontology",
+    "title": "419-million-year-old armored fish with a bat-wing-shaped skull identified in China",
+    "summary": "Paleontologists identified a new species of armored, jawless fish from 419-million-year-old rocks in China, whose skull was shaped like a bat's wing, making it an efficient glider through Devonian seas.",
+    "tags": ["Paleontology", "China", "Ancient Fish", "Devonian"],
+    "url": "https://www.sci.news/news/paleontology"
+  },
+  {
+    "date": "2026-08-14",
+    "lang": "en",
+    "category": "Paleontology",
+    "title": "Organic collagen molecules found preserved in dinosaur fossils tens of millions of years old",
+    "summary": "Researchers found strong evidence that original collagen can survive inside dinosaur fossils for tens of millions of years, overturning a long-standing assumption about how fossilization destroys organic material.",
+    "tags": ["Paleontology", "Dinosaurs", "Collagen", "Fossilization"],
+    "url": "https://www.sciencedaily.com/releases/2026/08/260811053042.htm"
+  },
+  {
+    "date": "2026-08-13",
+    "lang": "en",
+    "category": "Physics",
+    "title": "BESIII finds evidence X(2370) particle is dominated by pure-force glueball state",
+    "summary": "The BESIII Collaboration announced evidence that X(2370), a particle first discovered in 2011, is dominated by the lightest particle made of pure force, a long-sought glueball state predicted by quantum chromodynamics.",
+    "tags": ["Physics", "Particle Physics", "Glueball", "BESIII"],
+    "url": "https://physicsdiscussion.com/news.html"
+  },
+  {
+    "date": "2026-08-19",
+    "lang": "en",
+    "category": "Local News (US)",
+    "title": "US and Canada reach deal to delay escalating tariffs",
+    "summary": "President Trump announced the US and Canada reached a deal to delay tariff hikes, with Canada agreeing to drop tariffs on American farm goods in exchange for the US limiting new duties to about $20 billion of Canadian goods.",
+    "tags": ["United States", "Canada", "Trade", "Tariffs"],
+    "url": "https://www.democracynow.org/2026/8/20/headlines"
+  },
+  {
+    "date": "2026-08-20",
+    "lang": "en",
+    "category": "Local News (UK)",
+    "title": "Duke and Duchess of Sussex reportedly planning return to UK for children's schooling",
+    "summary": "Prince Harry and Meghan Markle are reportedly planning a return to the UK, with their children Archie and Lilibet expected to start school in Britain in September.",
+    "tags": ["United Kingdom", "Royal Family", "Sussex"],
+    "url": "https://www.london-now.co.uk/archive/2026/08/20/"
+  },
+  {
+    "date": "2026-08-19",
+    "lang": "es",
+    "category": "Arqueología",
+    "title": "Hallan en las Huacas de Moche los restos de un infante enterrado hace 1.500 años con ofrendas ceremoniales",
+    "summary": "Arqueólogos del Complejo Arqueológico Huacas de Moche, en Trujillo, hallaron los restos de un infante de un año y medio enterrado junto a silbatos, una sonajera y una vasija escultórica, ampliando el conocimiento sobre la vida cotidiana moche.",
+    "tags": ["Arqueología", "Perú", "Cultura Moche", "Huacas de Moche"],
+    "url": "https://larepublica.pe/sociedad/2026/08/19/inedito-hallazgo-en-trujillo-arqueologos-encuentran-los-restos-de-un-infante-con-juguetes-ceremoniales-y-vasijas-en-las-huacas-de-moche-298965"
+  },
+  {
+    "date": "2026-08-13",
+    "lang": "es",
+    "category": "Arqueología",
+    "title": "Arqueólogos devuelven a la luz mosaicos paleocristianos de 1.600 años en Croacia",
+    "summary": "Un equipo de arqueólogos en Croacia recuperó mosaicos paleocristianos de 1.600 años de antigüedad, casi medio siglo después de su descubrimiento inicial, permitiendo su estudio y exhibición actualizados.",
+    "tags": ["Arqueología", "Croacia", "Mosaicos", "Cristianismo Primitivo"],
+    "url": "https://arkeonews.net/"
+  },
+  {
+    "date": "2026-08-13",
+    "lang": "es",
+    "category": "Arqueología",
+    "title": "Excavaciones en Cerro Mayal, Perú, confirman un centro de producción cerámica de la civilización mochica",
+    "summary": "Arqueólogos que excavan el yacimiento de Cerro Mayal, en el norte de Perú, hallaron nueva evidencia de que el sitio fue un importante centro de producción cerámica moche, arrojando luz sobre un aspecto poco conocido de esa cultura.",
+    "tags": ["Arqueología", "Perú", "Cultura Moche", "Cerámica"],
+    "url": "https://archaeology.org/issues/july-august-2026/"
+  },
+  {
+    "date": "2026-08-20",
+    "lang": "es",
+    "category": "Noticias Locales (España)",
+    "title": "Varios incendios forestales siguen activos en España mientras el de Las Peñas de Riglos se estabiliza tras quemar 14.500 hectáreas",
+    "summary": "España gestiona varios incendios forestales simultáneos: el de Pinofranqueado (Cáceres) mejora, el de Aldehuela sigue preocupando, y los de Las Peñas de Riglos (Huesca) y Niebla (Huelva) quedan estabilizados tras quemar miles de hectáreas.",
+    "tags": ["España", "Incendios Forestales", "Medio Ambiente"],
+    "url": "https://www.infobae.com/espana/agencias/2026/08/20/temas-del-dia-de-efe-espana-del-jueves-20-de-agosto-de-2026-1330-horas/"
+  },
+  {
+    "date": "2026-08-20",
+    "lang": "es",
+    "category": "Noticias Locales (Perú)",
+    "title": "Sismo de magnitud 7.2 remece el sur de Perú con epicentro en Ayacucho",
+    "summary": "Un sismo de magnitud 7.2 con epicentro en la provincia de Parinacochas, Ayacucho, se sintió en Arequipa, Ica, Cusco, Apurímac y Lima. El IGP no reportó daños ni víctimas tras el movimiento telúrico.",
+    "tags": ["Perú", "Sismo", "Ayacucho", "IGP"],
+    "url": "https://www.infobae.com/peru/2026/08/20/sismo-hoy-jueves-20-de-agosto-se-sintio-esta-tarde-en-lima-reporte-del-igp/"
+  },
+  {
+    "date": "2026-08-20",
+    "lang": "es",
+    "category": "Noticias Locales (Argentina)",
+    "title": "Una startup argentina desarrolla un hidrogel capaz de reparar tejido cardíaco dañado",
+    "summary": "Una startup de Argentina anunció el desarrollo de un hidrogel biomédico diseñado para reparar tejido cardíaco dañado, un avance con potencial impacto en el tratamiento de enfermedades cardiovasculares.",
+    "tags": ["Argentina", "Biotecnología", "Salud", "Innovación"],
+    "url": "https://www.lanacion.com.ar/"
   }
 ]
